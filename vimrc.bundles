@@ -21,9 +21,10 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'elzr/vim-json'
 Bundle 'rking/ag.vim'
 Bundle 'tommcdo/vim-exchange'
-Bundle 'Lokaltog/powerline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'godlygeek/tabular'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'ngmy/vim-rubocop'
 
 " vim-scripts repos
 Bundle 'L9'
