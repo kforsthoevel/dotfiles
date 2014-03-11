@@ -27,6 +27,11 @@ if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
 endif
 
+" Color scheme
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+
 filetype plugin indent on
 
 " Get off my lawn
