@@ -1,0 +1,7 @@
+*.DS_Store
+*.sw[nop]
+.bundle
+!tmp/cache/.keep
+.kitchen/
+.kitchen.local.yml
+.coverage

@@ -1,0 +1,14 @@
+tap thoughtbot/formulae
+install rcm
+install ant
+install encfs
+install fwknop
+install git
+install libpqxx
+install libyaml
+install postgresql
+install rbenv-gem-rehash
+install ruby-build
+install the_silver_searcher
+install tree
+install vim

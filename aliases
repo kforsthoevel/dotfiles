@@ -1,0 +1,4 @@
+alias ber="bundle exec rspec --color"
+alias best="bundle exec strainer test"
+
+[[ -f ~/.aliases.local ]] && source ~/.aliases.local

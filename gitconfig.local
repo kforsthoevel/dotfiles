@@ -1,0 +1,6 @@
+[user]
+	name = Kai Forsthövel
+	email = kai.forsthoevel@invision.de
+[credential]
+	helper = osxkeychain
+
