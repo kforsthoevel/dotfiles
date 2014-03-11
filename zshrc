@@ -34,7 +34,7 @@ CASE_SENSITIVE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler capistrano git history rbenv knife knife_ssh osx ruby thor vagrant)
+plugins=(berkshelf bundler capistrano git history rbenv knife knife_ssh osx ruby thor vagrant)
 
 export EDITOR=vi
 source $ZSH/oh-my-zsh.sh
