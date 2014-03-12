@@ -1,4 +1,5 @@
 alias ber="bundle exec rspec --color"
 alias best="bundle exec strainer test"
+alias bet="bundle exec thor release"
 
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
