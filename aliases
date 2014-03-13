@@ -1,4 +1,4 @@
-alias ber="bundle exec rspec --color"
+alias ber="bundle exec rspec --color --order rand"
 alias best="bundle exec strainer test"
 alias bet="bundle exec thor release"
 
