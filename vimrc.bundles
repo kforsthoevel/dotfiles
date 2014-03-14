@@ -25,6 +25,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ngmy/vim-rubocop'
+Bundle 'bling/vim-airline'
 
 " vim-scripts repos
 Bundle 'L9'
