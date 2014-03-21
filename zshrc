@@ -51,5 +51,5 @@ export AWS_DEFAULT_REGION="`ruby -rinifile -e "puts IniFile.load(File.join(File.
 ssh-add ~/.ssh/id_rsa &>/dev/null
 ssh-add ~/.ssh/kforsthoevel.pem &>/dev/null
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin/packer
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin/packer
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
