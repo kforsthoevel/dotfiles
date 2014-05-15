@@ -53,3 +53,4 @@ ssh-add ~/.ssh/kforsthoevel.pem &>/dev/null
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin/packer
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
