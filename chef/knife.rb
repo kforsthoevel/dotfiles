@@ -12,6 +12,7 @@ cache_options( :path => "#{ENV['HOME']}/.chef/checksums" )
 cookbook_path             ["#{current_dir}/../cookbooks"]
 role_path                 "#{current_dir}/../roles"
 cookbook_email            "Kai Forsthoevel <kai.forsthoevel@injixo.com>"
+ssl_verify_mode           :verify_peer
 
 knife[:aws_ssh_key_id]        = ENV['AWS_SSH_KEY']
 knife[:aws_access_key_id]     = ENV['AWS_ACCESS_KEY_ID']
