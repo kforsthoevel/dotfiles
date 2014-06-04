@@ -97,7 +97,8 @@ set expandtab
 " Set to auto read when a file is changed from the outside
 "set autoread
 autocmd Filetype gitcommit setlocal spell textwidth=72
-autocmd FileType ruby,eruby,json,yaml,html setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd FileType eruby,json,yaml,html setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd FileType ruby setlocal colorcolumn=79 shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType ruby,eruby,json,yaml,html autocmd BufWritePre <buffer> :%s/\s\+$//e
 autocmd FileType markdown setlocal spell
 
