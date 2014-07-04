@@ -1,8 +1,5 @@
-" leader
-let mapleader = ","
-
-set backspace=2   " Backspace deletes like most programs in insert mode
 set nocompatible  " Use Vim settings, rather then Vi settings
+set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
 set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
@@ -11,11 +8,14 @@ set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
-set statusline=%f\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=[%-3.3n]\ %c,%l/%L\ %P
+" set statusline=%f\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=[%-3.3n]\ %c,%l/%L\ %P
 set autowrite     " Automatically :write before running commands
 set hidden
 set number
 set numberwidth=5
+
+" leader
+let mapleader = ","
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -111,6 +111,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+" vim json settings
+let g:vim_json_warnings = 1
+let g:vim_json_syntax_conceal = 1
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
