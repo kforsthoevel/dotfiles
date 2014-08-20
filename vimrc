@@ -116,6 +116,9 @@ nnoremap <C-l> <C-w>l
 let g:vim_json_warnings = 1
 let g:vim_json_syntax_conceal = 1
 
+" Activate vim 7.4 matchit plugin
+runtime macros/matchit.vim
+
 " Local config
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
