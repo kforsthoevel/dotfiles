@@ -10,6 +10,7 @@ chef_server_url           "https://api.opscode.com/organizations/injixo"
 cache_type                'BasicFile'
 cache_options( :path => "#{ENV['HOME']}/.chef/checksums" )
 cookbook_path             ["#{current_dir}/../cookbooks"]
+data_bag_path             "#{current_dir}/../data_bags"
 role_path                 "#{current_dir}/../roles"
 cookbook_email            "Kai Forsthoevel <kai.forsthoevel@injixo.com>"
 ssl_verify_mode           :verify_peer
