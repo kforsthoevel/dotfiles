@@ -2,5 +2,10 @@ alias ber="bundle exec rspec --color --order rand"
 alias best="bundle exec strainer test"
 alias bet="bundle exec thor release"
 alias glop="git log -30 --graph --pretty=format:'%h %ad %s (%an)' --date=short"
+alias kl="kitchen list"
+alias klo="kitchen login"
+alias kd="kitchen destroy"
+alias kc="kitchen converge"
+alias kv="kitchen verify"
 
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
