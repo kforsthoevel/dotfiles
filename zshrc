@@ -39,6 +39,7 @@ plugins=(berkshelf bundler capistrano git history rbenv knife knife_ssh osx ruby
 export EDITOR=vi
 source $ZSH/oh-my-zsh.sh
 
+[[ -f ~/.zsh_colors.zsh ]] && source ~/.zsh_colors.zsh
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 export AWS_ACCESS_KEY_ID=`ruby -rinifile -e "puts IniFile.load(File.join(File.expand_path('~'), '.aws', 'config'))['default']['aws_access_key_id']"`
