@@ -55,6 +55,6 @@ cb() { cd ~/projects/injixo_infrastructure/cookbooks/${1} }
 ssh-add ~/.ssh/id_rsa &>/dev/null
 ssh-add ~/.ssh/kforsthoevel.pem &>/dev/null
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin/packer
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/bin/packer:$HOME/bin/terraform
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
