@@ -49,6 +49,7 @@ export AWS_SSH_KEY='kforsthoevel'
 export AWS_SSH_KEY_FILE=${HOME}/.ssh/${AWS_SSH_KEY}.pem
 export AWS_DEFAULT_REGION="`ruby -rinifile -e "puts IniFile.load(File.join(File.expand_path('~'), '.aws', 'config'))['default']['region']"`"
 
+cb() { cd ~/projects/injixo_infrastructure/cookbooks/${1} }
 
 # SSH Agent
 ssh-add ~/.ssh/id_rsa &>/dev/null
