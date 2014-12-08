@@ -13,6 +13,7 @@ set autowrite     " Automatically :write before running commands
 set hidden
 set number
 set numberwidth=5
+set encoding=utf-8
 
 " leader
 let mapleader = ","
@@ -31,6 +32,7 @@ endif
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
+let g:airline_powerline_fonts = 1
 
 filetype plugin indent on
 
