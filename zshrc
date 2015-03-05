@@ -49,6 +49,11 @@ export AWS_SSH_KEY='kforsthoevel'
 export AWS_SSH_KEY_FILE=${HOME}/.ssh/${AWS_SSH_KEY}.pem
 export AWS_DEFAULT_REGION="`ruby -rinifile -e "puts IniFile.load(File.join(File.expand_path('~'), '.aws', 'config'))['default']['region']"`"
 
+# Docker stuff
+export DOCKER_TLS_VERIFY=1
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/kforsthoevel/.boot2docker/certs/boot2docker-vm
+
 cb() { cd ~/projects/injixo_infrastructure/cookbooks/${1} }
 
 # SSH Agent
