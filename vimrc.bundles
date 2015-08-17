@@ -7,7 +7,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " Let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Bundle 'VundleVim/Vundle.vim'
 
 " Define bundles via Github repos
 Bundle 'danro/rename.vim'
@@ -26,6 +26,8 @@ Bundle 'godlygeek/tabular'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'ngmy/vim-rubocop'
 Bundle 'bling/vim-airline'
+Bundle 'terryma/vim-expand-region'
+Bundle 'unblevable/quick-scope'
 
 " vim-scripts repos
 Bundle 'L9'
