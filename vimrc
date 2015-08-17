@@ -121,6 +121,12 @@ let g:vim_json_syntax_conceal = 1
 " Activate vim 7.4 matchit plugin
 runtime macros/matchit.vim
 
+" QuickScope
+let g:qs_first_occurrence_highlight_color = 155       " terminal vim
+let g:qs_second_occurrence_highlight_color = 81         " terminal vim
+nmap <leader>q <plug>(QuickScopeToggle)
+vmap <leader>q <plug>(QuickScopeToggle)
+
 " Local config
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
