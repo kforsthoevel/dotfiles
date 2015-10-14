@@ -10,5 +10,6 @@ alias kv="kitchen verify"
 alias cdcf="cd ~/projects/injixo_infrastructure/chef"
 alias cdcb="cd ~/projects/injixo_infrastructure/cookbooks"
 alias buc="brew update && brew upgrade --all && brew cleanup"
+alias env="/usr/bin/env |grep -v AWS_ACCESS_KEY_ID |grep -v AWS_SECRET_ACCESS_KEY"
 
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
