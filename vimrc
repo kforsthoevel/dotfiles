@@ -121,9 +121,22 @@ let g:vim_json_syntax_conceal = 1
 " Activate vim 7.4 matchit plugin
 runtime macros/matchit.vim
 
+" Settings for syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" Turn off annoying syntastic error in ERB files
+let g:syntastic_eruby_ruby_quiet_messages =
+  \ {'regex': 'possibly useless use of a variable in void context'}
+
 " QuickScope
 let g:qs_first_occurrence_highlight_color = 155       " terminal vim
-let g:qs_second_occurrence_highlight_color = 81         " terminal vim
+let g:qs_second_occurrence_highlight_color = 81       " terminal vim
 nmap <leader>q <plug>(QuickScopeToggle)
 vmap <leader>q <plug>(QuickScopeToggle)
 
