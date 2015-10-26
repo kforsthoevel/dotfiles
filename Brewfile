@@ -33,6 +33,6 @@ brew 'the_silver_searcher'
 brew 'tig'
 brew 'tmux'
 brew 'tree'
-brew 'vim'
+brew 'vim', args: ['override-system-vi']
 brew 'watch'
 brew 'wget'
