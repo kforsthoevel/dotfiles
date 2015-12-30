@@ -43,6 +43,12 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
   export SSH_AUTH_SOCK
 fi
 export GPG_TTY=$(tty)
+
+if [ -f "${HOME}/.atlas" ]; then
+  . "${HOME}/.atlas"
+  export ATLAS_TOKEN
+fi
+
 ssh-add ~/.ssh/id_rsa &>/dev/null
 ssh-add ~/.ssh/kforsthoevel.pem &>/dev/null
 
