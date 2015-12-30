@@ -29,10 +29,10 @@ export AWS_DEFAULT_REGION=`awk -F "=" '/region/ {print $2}' ${HOME}/.aws/credent
 [[ -f $HOME/projects/warp/warp ]] && source $HOME/projects/warp/warp
 
 # Docker stuff
+export DOCKER_HOST=tcp://192.168.99.100:2376
+export DOCKER_CERT_PATH=/Users/kforsthoevel/.docker/machine/machines/dinghy
 export DOCKER_TLS_VERIFY=1
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/kforsthoevel/.boot2docker/certs/boot2docker-vm
-
+export DOCKER_MACHINE_NAME=dinghy
 cb() { cd ~/projects/injixo_infrastructure/cookbooks/${1} }
 wo() { curl http://find/clients.txt 2>/dev/null | awk '{print $1, "\t" $3}' | grep -i "$@" | expand -t30}
 
