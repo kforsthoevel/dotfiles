@@ -27,7 +27,6 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'ngmy/vim-rubocop'
 Bundle 'bling/vim-airline'
 Bundle 'terryma/vim-expand-region'
-Bundle 'unblevable/quick-scope'
 Bundle 'scrooloose/syntastic'
 
 " vim-scripts repos
