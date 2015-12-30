@@ -37,6 +37,12 @@ cb() { cd ~/projects/injixo_infrastructure/cookbooks/${1} }
 wo() { curl http://find/clients.txt 2>/dev/null | awk '{print $1, "\t" $3}' | grep -i "$@" | expand -t30}
 
 # SSH Agent
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+  . "${HOME}/.gpg-agent-info"
+  export GPG_AGENT_INFO
+  export SSH_AUTH_SOCK
+fi
+export GPG_TTY=$(tty)
 ssh-add ~/.ssh/id_rsa &>/dev/null
 ssh-add ~/.ssh/kforsthoevel.pem &>/dev/null
 
