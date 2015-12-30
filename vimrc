@@ -15,6 +15,9 @@ set number
 set numberwidth=5
 set encoding=utf-8
 
+" Use one space, not two, after punctuation.
+set nojoinspaces
+
 " leader
 let mapleader = ","
 
@@ -69,15 +72,16 @@ function! Tab_Or_Complete()
 endfunction
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
+" Use The Platinum Searcher
+" https://github.com/monochromegane/the_platinum_searcher
+if executable('pt')
+  " Use Pt over Grep
+  set grepprg=pt\ --nogroup\ --nocolor
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+  " Use pt in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'pt %s -l --nocolor --hidden -g ""'
 
-  " ag is fast enough that CtrlP doesn't need to cache
+  " pt is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
 
@@ -97,7 +101,7 @@ set shiftwidth=2
 set expandtab
 
 " Set to auto read when a file is changed from the outside
-"set autoread
+set autoread
 autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd FileType eruby,json,yaml,html setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType ruby setlocal colorcolumn=79 shiftwidth=2 tabstop=2 softtabstop=2 expandtab
@@ -133,12 +137,6 @@ let g:syntastic_check_on_wq = 0
 " Turn off annoying syntastic error in ERB files
 let g:syntastic_eruby_ruby_quiet_messages =
   \ {'regex': 'possibly useless use of a variable in void context'}
-
-" QuickScope
-let g:qs_first_occurrence_highlight_color = 155       " terminal vim
-let g:qs_second_occurrence_highlight_color = 81       " terminal vim
-nmap <leader>q <plug>(QuickScopeToggle)
-vmap <leader>q <plug>(QuickScopeToggle)
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
