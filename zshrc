@@ -24,6 +24,7 @@ export AWS_SECRET_ACCESS_KEY=`awk -F "=" '/aws_secret_access_key/ {print $2}' ${
 export AWS_DEFAULT_REGION=`awk -F "=" '/region/ {print $2}' ${HOME}/.aws/credentials |head -1`
 
 [[ -f ~/.zsh_colors.zsh ]] && source ~/.zsh_colors.zsh
+[[ -f ~/.atlas ]] && source ~/.atlas && export ATLAS_TOKEN
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f /usr/local/share/zsh/site-functions/_aws ]] && source /usr/local/share/zsh/site-functions/_aws
 [[ -f $HOME/projects/warp/warp ]] && source $HOME/projects/warp/warp
@@ -33,6 +34,7 @@ export DOCKER_HOST=tcp://192.168.99.100:2376
 export DOCKER_CERT_PATH=/Users/kforsthoevel/.docker/machine/machines/dinghy
 export DOCKER_TLS_VERIFY=1
 export DOCKER_MACHINE_NAME=dinghy
+
 cb() { cd ~/projects/injixo_infrastructure/cookbooks/${1} }
 wo() { curl http://find/clients.txt 2>/dev/null | awk '{print $1, "\t" $3}' | grep -i "$@" | expand -t30}
 
@@ -43,11 +45,6 @@ if [ -f "${HOME}/.gpg-agent-info" ]; then
   export SSH_AUTH_SOCK
 fi
 export GPG_TTY=$(tty)
-
-if [ -f "${HOME}/.atlas" ]; then
-  . "${HOME}/.atlas"
-  export ATLAS_TOKEN
-fi
 
 ssh-add ~/.ssh/id_rsa &>/dev/null
 ssh-add ~/.ssh/kforsthoevel.pem &>/dev/null
