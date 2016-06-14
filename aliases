@@ -1,4 +1,5 @@
 alias ber="bundle exec rake"
+alias bers="bundle exec rspec --color --order rand"
 alias best="bundle exec strainer test"
 alias bet="bundle exec thor release"
 alias glop="git log -30 --graph --pretty=format:'%h %ad %s (%an)' --date=short"
