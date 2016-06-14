@@ -32,9 +32,6 @@ export AWS_DEFAULT_REGION=`awk -F "=" '/region/ {print $2}' ${HOME}/.aws/credent
 [[ -f /usr/local/share/zsh/site-functions/_aws ]] && source /usr/local/share/zsh/site-functions/_aws
 [[ -f $HOME/projects/warp/warp ]] && source $HOME/projects/warp/warp
 
-# Docker stuff
-eval "$(dinghy shellinit)"
-
 cb() { cd ~/projects/injixo_infrastructure/cookbooks/${1} }
 wo() { curl http://find/clients.txt 2>/dev/null | awk '{print $1, "\t" $3}' | grep -i "$@" | expand -t30}
 
