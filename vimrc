@@ -20,7 +20,7 @@ set encoding=utf-8
 set nojoinspaces
 
 " leader
-let mapleader = ","
+let mapleader = " "
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
