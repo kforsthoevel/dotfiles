@@ -12,6 +12,7 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set hidden
 set number
+set relativenumber
 set numberwidth=5
 set encoding=utf-8
 
