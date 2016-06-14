@@ -35,12 +35,6 @@ export AWS_DEFAULT_REGION=`awk -F "=" '/region/ {print $2}' ${HOME}/.aws/credent
 cb() { cd ~/projects/cookbooks/${1} }
 wo() { curl http://find/clients.txt 2>/dev/null | awk '{print $1, "\t" $3}' | grep -i "$@" | expand -t30}
 
-# SSH Agent
-# if [ -f "${HOME}/.gpg-agent-info" ]; then
-#   . "${HOME}/.gpg-agent-info"
-#   export GPG_AGENT_INFO
-#   export SSH_AUTH_SOCK
-# fi
 export GPG_TTY=$(tty)
 
 ssh-add ~/.ssh/id_rsa &>/dev/null
