@@ -36,8 +36,15 @@ endif
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
+
+" Configure airline
+let g:airline_theme = 'solarized'
 let g:airline_powerline_fonts = 1
-let g:airline_theme="solarized"
+if !exists("g:airline_symbols")
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.maxlinenr = ''
 
 filetype plugin indent on
 
@@ -74,6 +81,15 @@ function! Tab_Or_Complete()
 endfunction
 :inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 
+" Strip trailing whitespaces and
+" keep current cursor position
+fun! <SID>StripTrailingWhitespaces()
+   let l = line(".")
+   let c = col(".")
+   %s/\s\+$//e
+   call cursor(l, c)
+endfun
+
 " Use The Platinum Searcher
 " https://github.com/monochromegane/the_platinum_searcher
 if executable('pt')
@@ -107,7 +123,7 @@ set autoread
 autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd FileType eruby,json,yaml,html setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType ruby setlocal colorcolumn=79 shiftwidth=2 tabstop=2 softtabstop=2 expandtab
-autocmd FileType ruby,eruby,json,yaml,html autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType ruby,eruby,json,yaml,html autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd FileType markdown setlocal spell
 
 " Open new split panes to right and bottom, which feels more natural
