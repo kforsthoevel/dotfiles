@@ -15,9 +15,15 @@ set number
 set relativenumber
 set numberwidth=5
 set encoding=utf-8
+set hlsearch
 
 " Use one space, not two, after punctuation.
 set nojoinspaces
+
+" Use <F4> to clear the highlighting of :set hlsearch.
+if maparg('<F4>', 'n') ==# ''
+  nnoremap <silent> <F4> :nohlsearch<CR><C-L>
+endif
 
 " leader
 let mapleader = " "
