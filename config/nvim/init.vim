@@ -55,9 +55,9 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
 if &term =~ "xterm" || &term =~ "screen"
- let g:CommandTCancelMap = ['<C-c>', '<ESC>']
- let g:CommandTSelectNextMap = ['<C-j>', '<ESC>OB']
- let g:CommandTSelectPrevMap = ['<C-k>', '<ESC>OA']
+  let g:CommandTCancelMap = ['<C-c>', '<ESC>']
+  let g:CommandTSelectNextMap = ['<C-j>', '<ESC>OB']
+  let g:CommandTSelectPrevMap = ['<C-k>', '<ESC>OA']
 endif
 
 " CtrlP
@@ -84,10 +84,10 @@ endfunction
 " Strip trailing whitespaces and
 " keep current cursor position
 fun! <SID>StripTrailingWhitespaces()
-   let l = line(".")
-   let c = col(".")
-   %s/\s\+$//e
-   call cursor(l, c)
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//e
+  call cursor(l, c)
 endfun
 
 " Use The Platinum Searcher
@@ -159,7 +159,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 " Turn off annoying syntastic error in ERB files
 let g:syntastic_eruby_ruby_quiet_messages =
-  \ {'regex': 'possibly useless use of a variable in void context'}
+      \ {'regex': 'possibly useless use of a variable in void context'}
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
