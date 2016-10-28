@@ -15,3 +15,8 @@ fi
 if [ ! -d "${HOME}/dotfiles/config/nvim/repos/github.com/Shougo/dein.vim" ]; then
   "${HOME}/tmp/installer.sh" "${HOME}/dotfiles/config/nvim"
 fi
+
+# Install tmux plugin manager
+if [ ! -f "${HOME}/.tmux/plugins/tpm/README.md" ]; then
+  git clone https://github.com/tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
+fi
