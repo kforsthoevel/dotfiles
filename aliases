@@ -15,5 +15,6 @@ alias env="/usr/bin/env | grep -v AWS_ACCESS_KEY_ID | grep -v AWS_SECRET_ACCESS_
 alias dco="docker-compose"
 alias k="kubectl"
 alias tf="terraform"
+alias tg="terragrunt"
 
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
