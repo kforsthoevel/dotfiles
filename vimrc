@@ -15,6 +15,7 @@ set number
 set relativenumber
 set numberwidth=5
 set encoding=utf-8
+set hlsearch
 
 " Use one space, not two, after punctuation.
 set nojoinspaces
