@@ -37,6 +37,7 @@ cb() { cd ~/projects/cookbooks/${1} }
 wo() { curl http://find/clients.txt 2>/dev/null | awk '{print $1, "\t" $3}' | grep -i "$@" | expand -t30}
 kp() { kubectl --context Production "$@" }
 ks() { kubectl --context Staging "$@" }
+ki() { kubectl --context infra.k8s.ivx.cloud "$@" }
 source <(kubectl completion zsh)
 
 export GPG_TTY=$(tty)
