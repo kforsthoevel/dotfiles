@@ -17,7 +17,7 @@ CASE_SENSITIVE="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(berkshelf bundler docker docker-compose git history rbenv kitchen knife osx ruby terraform thor tmux vagrant)
 
-export EDITOR=vi
+export EDITOR=vim
 source $ZSH/oh-my-zsh.sh
 
 export AWS_SSH_KEY='kforsthoevel'
