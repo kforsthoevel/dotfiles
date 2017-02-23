@@ -1,43 +1,42 @@
-if &compatible
-  set nocompatible
-end
-
+set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Let Vundle manage Vundle
-Bundle 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " Define bundles via Github repos
-Bundle 'danro/rename.vim'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'junegunn/gv.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-markdown'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'elzr/vim-json'
-Bundle 'rking/ag.vim'
-Bundle 'tommcdo/vim-exchange'
-Bundle 'kien/ctrlp.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'ngmy/vim-rubocop'
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'terryma/vim-expand-region'
-Bundle 'scrooloose/syntastic'
-Bundle 'hashivim/vim-terraform'
+Plugin 'danro/rename.vim'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/gv.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-markdown'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'elzr/vim-json'
+Plugin 'nazo/pt.vim'
+Plugin 'tommcdo/vim-exchange'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'ngmy/vim-rubocop'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'terryma/vim-expand-region'
+Plugin 'scrooloose/syntastic'
+Plugin 'hashivim/vim-terraform'
+Plugin 'jiangmiao/auto-pairs'
 
 " vim-scripts repos
-Bundle 'L9'
-Bundle 'FuzzyFinder'
+Plugin 'L9'
+Plugin 'FuzzyFinder'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
 endif
 
-filetype on
+call vundle#end()
+filetype plugin indent on

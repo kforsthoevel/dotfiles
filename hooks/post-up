@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # Install vundler
-if [ ! -e "${HOME}/.vim/bundle/vundle" ]; then
-  git clone https://github.com/VundleVim/Vundle.vim.git "${HOME}/.vim/bundle/vundle"
+if [ ! -e "${HOME}/.vim/bundle/Vundle.vim" ]; then
+  git clone https://github.com/VundleVim/Vundle.vim.git "${HOME}/.vim/bundle/Vundle.vim"
 fi
 
-vim -u "${HOME}/.vimrc.bundles" +BundleInstall +qa
+vim -u "${HOME}/.vimrc.bundles" +PluginInstall +qall
 
 # Install dein
 if [ ! -e "${HOME}/tmp/installer.sh" ]; then
