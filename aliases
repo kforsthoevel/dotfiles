@@ -16,5 +16,6 @@ alias dco="docker-compose"
 alias k="kubectl"
 alias tf="terraform"
 alias tg="terragrunt"
+alias vi="vim"
 
 [[ -f ~/.aliases.local ]] && source ~/.aliases.local
