@@ -26,6 +26,7 @@ export AWS_ACCESS_KEY_ID=`awk -F "=" '/aws_access_key_id/ {print $2}' ${HOME}/.a
 export AWS_SECRET_ACCESS_KEY=`awk -F "=" '/aws_secret_access_key/ {print $2}' ${HOME}/.aws/credentials |head -1`
 export AWS_DEFAULT_REGION=`awk -F "=" '/region/ {print $2}' ${HOME}/.aws/credentials |head -1`
 export KOPS_STATE_STORE="s3://kops-kubernetes-state"
+export DISABLE_AUTO_TITLE=true
 
 [[ -f ~/.zsh_colors.zsh ]] && source ~/.zsh_colors.zsh
 [[ -f ~/.atlas ]] && source ~/.atlas && export ATLAS_TOKEN
