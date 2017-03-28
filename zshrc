@@ -39,6 +39,8 @@ wo() { curl http://find/clients.txt 2>/dev/null | awk '{print $1, "\t" $3}' | gr
 kp() { kubectl --context Production "$@" }
 ks() { kubectl --context Staging "$@" }
 ki() { kubectl --context infra.k8s.ivx.cloud "$@" }
+ksn() { kubectl --context staging.k8s.ivx.cloud "$@" }
+kpn() { kubectl --context production.k8s.ivx.cloud "$@" }
 source <(kubectl completion zsh)
 
 export GPG_TTY=$(tty)
