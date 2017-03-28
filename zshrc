@@ -15,7 +15,7 @@ CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(berkshelf bundler docker docker-compose git history rbenv kitchen knife osx ruby terraform thor tmux vagrant)
+plugins=(berkshelf bundler docker docker-compose git history rbenv kitchen knife osx ruby terraform thor tmux vagrant zsh-syntax-highlighting)
 
 export EDITOR=vim
 source $ZSH/oh-my-zsh.sh
