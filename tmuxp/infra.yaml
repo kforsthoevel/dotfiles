@@ -1,0 +1,17 @@
+session_name: infra
+windows:
+  - window_name: infra
+    focus: true
+    panes:
+      - shell_command:
+        - cd $HOME/projects/infra
+      - shell_command:
+        - cd $HOME/projects/infra
+  - window_name: route53
+    panes:
+      - shell_command:
+        - cd $HOME/projects/infra/route53
+        - vim
+      - shell_command:
+        - cd $HOME/projects/infra/route53
+

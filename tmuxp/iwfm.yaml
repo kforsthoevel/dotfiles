@@ -1,0 +1,18 @@
+session_name: iwfm
+windows:
+  - window_name: iwfm host crud
+    focus: true
+    panes:
+      - shell_command:
+        - cd $HOME/projects/iwfm-hosts-crud
+        - vim
+      - shell_command:
+        - cd $HOME/projects/iwfm-hosts-crud
+  - window_name: packer
+    panes:
+      - shell_command:
+        - cd $HOME/projects/packer-iwfm
+        - vim
+      - shell_command:
+        - cd $HOME/projects/packer-iwfm
+

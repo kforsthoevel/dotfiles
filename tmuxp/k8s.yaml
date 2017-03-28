@@ -1,0 +1,18 @@
+session_name: k8s
+windows:
+  - window_name: definitions
+    focus: true
+    panes:
+      - shell_command:
+        - cd $HOME/projects/k8s-definitions
+        - vim
+      - shell_command:
+        - cd $HOME/projects/k8s-definitions
+  - window_name: secrets
+    panes:
+      - shell_command:
+        - cd $HOME/crypt_infra/k8s
+        - vim
+      - shell_command:
+        - cd $HOME/k8s_infra/k8s
+
