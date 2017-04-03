@@ -1,0 +1,17 @@
+session_name: vpc
+windows:
+  - window_name: invision
+    focus: true
+    panes:
+      - shell_command:
+        - cd $HOME/projects/aws_vpc_infrastructure/invision
+      - shell_command:
+        - cd $HOME/projects/aws_vpc_infrastructure/invision
+  - window_name: modules
+    panes:
+      - shell_command:
+        - cd $HOME/projects/aws_vpc_infrastructure/modules
+        - vim
+      - shell_command:
+        - cd $HOME/projects/aws_vpc_infrastructure/modules
+
