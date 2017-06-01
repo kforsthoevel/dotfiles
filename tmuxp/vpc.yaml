@@ -5,6 +5,7 @@ windows:
     panes:
       - shell_command:
         - cd $HOME/projects/aws_vpc_infrastructure/invision
+        - vim
       - shell_command:
         - cd $HOME/projects/aws_vpc_infrastructure/invision
   - window_name: modules
