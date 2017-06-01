@@ -36,11 +36,6 @@ export DISABLE_AUTO_TITLE=true
 
 cb() { cd ~/projects/cookbooks/${1} }
 wo() { curl http://find/clients.txt 2>/dev/null | awk '{print $1, "\t" $3}' | grep -i "$@" | expand -t30}
-kp() { kubectl --context Production "$@" }
-ks() { kubectl --context Staging "$@" }
-ki() { kubectl --context infra.k8s.ivx.cloud "$@" }
-ksn() { kubectl --context staging.k8s.ivx.cloud "$@" }
-kpn() { kubectl --context production.k8s.ivx.cloud "$@" }
 source <(kubectl completion zsh)
 
 export GPG_TTY=$(tty)
@@ -52,5 +47,6 @@ ssh-add ~/.ssh/devops-us.pem &>/dev/null
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
