@@ -6,3 +6,4 @@
 .kitchen.local.yml
 .coverage
 *.tfvars
+*.local
