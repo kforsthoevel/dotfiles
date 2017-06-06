@@ -34,8 +34,6 @@ export DISABLE_AUTO_TITLE=true
 [[ -f /usr/local/share/zsh/site-functions/_aws ]] && source /usr/local/share/zsh/site-functions/_aws
 [[ -f $HOME/projects/warp/warp ]] && source $HOME/projects/warp/warp
 
-cb() { cd ~/projects/cookbooks/${1} }
-wo() { curl http://find/clients.txt 2>/dev/null | awk '{print $1, "\t" $3}' | grep -i "$@" | expand -t30}
 source <(kubectl completion zsh)
 
 export GPG_TTY=$(tty)
