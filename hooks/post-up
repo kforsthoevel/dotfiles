@@ -1,20 +1,12 @@
 #!/bin/sh
 
-# Install vundler
-if [ ! -e "${HOME}/.vim/bundle/Vundle.vim" ]; then
-  git clone https://github.com/VundleVim/Vundle.vim.git "${HOME}/.vim/bundle/Vundle.vim"
+if [ ! -e "$HOME"/.vim/autoload/plug.vim ]; then
+  curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs \
+      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
+vim -u "$HOME"/.vimrc.bundles +PlugInstall +PlugClean! +qa
 
-vim -u "${HOME}/.vimrc.bundles" +PluginInstall +qall
-
-# Install dein
-if [ ! -e "${HOME}/tmp/installer.sh" ]; then
-  curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > "${HOME}/tmp/installer.sh"
-fi
-
-if [ ! -d "${HOME}/dotfiles/config/nvim/repos/github.com/Shougo/dein.vim" ]; then
-  "${HOME}/tmp/installer.sh" "${HOME}/dotfiles/config/nvim"
-fi
+reset -Q
 
 # Install tmux plugin manager
 if [ ! -f "${HOME}/.tmux/plugins/tpm/README.md" ]; then
