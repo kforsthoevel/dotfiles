@@ -57,6 +57,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'scrooloose/syntastic'
 Plug 'hashivim/vim-terraform'
 Plug 'jiangmiao/auto-pairs'
+Plug 'christianrondeau/vim-base64'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
