@@ -15,11 +15,11 @@ CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(berkshelf bundler docker docker-compose git history rbenv kitchen knife osx ruby terraform thor tmux vagrant zsh-syntax-highlighting)
+plugins=(berkshelf bundler docker docker-compose git golang history rbenv kitchen knife osx ruby terraform thor tmux vagrant zsh-syntax-highlighting)
 
-export EDITOR=vim
 source $ZSH/oh-my-zsh.sh
 
+export EDITOR=vim
 export AWS_SSH_KEY='kforsthoevel'
 export AWS_SSH_KEY_FILE=${HOME}/.ssh/${AWS_SSH_KEY}.pem
 export AWS_ACCESS_KEY_ID=`awk -F "=" '/aws_access_key_id/ {print $2}' ${HOME}/.aws/credentials |head -1`
@@ -28,6 +28,7 @@ export AWS_DEFAULT_REGION=`awk -F "=" '/region/ {print $2}' ${HOME}/.aws/credent
 export KOPS_STATE_STORE="s3://kops-kubernetes-state"
 export DISABLE_AUTO_TITLE=true
 export GOPATH="$HOME/projects/golang"
+export GPG_TTY=$(tty)
 
 [[ -f ~/.zsh_colors.zsh ]] && source ~/.zsh_colors.zsh
 [[ -f ~/.atlas ]] && source ~/.atlas && export ATLAS_TOKEN
@@ -37,7 +38,6 @@ export GOPATH="$HOME/projects/golang"
 
 source <(kubectl completion zsh)
 
-export GPG_TTY=$(tty)
 
 ssh-add ~/.ssh/id_rsa &>/dev/null
 ssh-add ~/.ssh/kforsthoevel.pem &>/dev/null
