@@ -27,6 +27,7 @@ export AWS_SECRET_ACCESS_KEY=`awk -F "=" '/aws_secret_access_key/ {print $2}' ${
 export AWS_DEFAULT_REGION=`awk -F "=" '/region/ {print $2}' ${HOME}/.aws/credentials |head -1`
 export KOPS_STATE_STORE="s3://kops-kubernetes-state"
 export DISABLE_AUTO_TITLE=true
+export GOPATH="$HOME/projects/golang"
 
 [[ -f ~/.zsh_colors.zsh ]] && source ~/.zsh_colors.zsh
 [[ -f ~/.atlas ]] && source ~/.atlas && export ATLAS_TOKEN
@@ -45,6 +46,6 @@ ssh-add ~/.ssh/devops-us.pem &>/dev/null
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export PATH="$GOPATH/bin:$PATH"
 
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
