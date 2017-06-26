@@ -58,6 +58,7 @@ Plug 'scrooloose/syntastic'
 Plug 'hashivim/vim-terraform'
 Plug 'jiangmiao/auto-pairs'
 Plug 'christianrondeau/vim-base64'
+Plug 'fatih/vim-go'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
