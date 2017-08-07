@@ -3,7 +3,7 @@ current_dir = File.dirname(__FILE__)
 log_level                 :info
 log_location              STDOUT
 node_name                 'kforsthoevel'
-client_key                "#{ENV['HOME']}/.ssh/chef_kforsthoevel.pem"
+client_key                "#{ENV['HOME']}/.ssh/kforsthoevel-chef.pem"
 validation_client_name    'injixo-validator'
 # validation_key            "#{ENV['HOME']}/.ssh/chef_injixo-validator.pem"
 chef_server_url           'https://api.opscode.com/organizations/injixo'
