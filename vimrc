@@ -62,9 +62,9 @@ if &term =~ "xterm" || &term =~ "screen"
 endif
 
 " CtrlP
-nnoremap <silent> <leader>t :CtrlP<CR>
-nnoremap <silent> <leader>b :CtrlPBuffer<CR>
-let g:ctrlp_show_hidden = 1
+" nnoremap <silent> <leader>t :CtrlP<CR>
+" nnoremap <silent> <leader>b :CtrlPBuffer<CR>
+" let g:ctrlp_show_hidden = 1
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
@@ -90,6 +90,9 @@ fun! <SID>StripTrailingWhitespaces()
    %s/\s\+$//e
    call cursor(l, c)
 endfun
+
+" Tell ack.vim to use ag (the Silver Searcher) instead
+let g:ackprg = 'ag --vimgrep'
 
 " Use The Platinum Searcher
 " https://github.com/monochromegane/the_platinum_searcher
@@ -156,6 +159,25 @@ let g:syntastic_check_on_wq = 0
 " Turn off annoying syntastic error in ERB files
 let g:syntastic_eruby_ruby_quiet_messages =
   \ {'regex': 'possibly useless use of a variable in void context'}
+
+" FZF (replaces Ctrl-P, FuzzyFinder and Command-T)
+set rtp+=/usr/local/opt/fzf
+set rtp+=~/.fzf
+nmap ; :Buffers<CR>
+nmap <Leader>r :Tags<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>a :Ag<CR>
+
+" Use incsearch.vim to highlight as I search
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+" ALE
+let g:ale_sign_warning = '▲'
+let g:ale_sign_error = '✗'
+highlight link ALEWarningSign String
+highlight link ALEErrorSign Title
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")

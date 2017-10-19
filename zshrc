@@ -19,6 +19,11 @@ plugins=(berkshelf bundler docker docker-compose git golang history rbenv kitche
 
 source $ZSH/oh-my-zsh.sh
 
+# Returns whether the given command is executable or aliased.
+_has() {
+  return $( whence $1 >/dev/null )
+}
+
 export EDITOR=vim
 export AWS_SSH_KEY='kforsthoevel'
 export AWS_SSH_KEY_FILE=${HOME}/.ssh/${AWS_SSH_KEY}.pem
@@ -35,6 +40,23 @@ export GPG_TTY=$(tty)
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f /usr/local/share/zsh/site-functions/_aws ]] && source /usr/local/share/zsh/site-functions/_aws
 [[ -f $HOME/projects/warp/warp ]] && source $HOME/projects/warp/warp
+
+# fzf via Homebrew
+if [ -e /usr/local/opt/fzf/shell/completion.zsh  ]; then
+  source /usr/local/opt/fzf/shell/key-bindings.zsh
+  source /usr/local/opt/fzf/shell/completion.zsh
+fi
+
+# fzf + ag configuration
+if _has fzf && _has ag; then
+  export FZF_DEFAULT_COMMAND='ag --nocolor -g ""'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_DEFAULT_OPTS='
+  --color fg:242,bg:236,hl:65,fg+:15,bg+:239,hl+:108
+  --color info:108,prompt:109,spinner:108,pointer:168,marker:168
+  '
+fi
 
 source <(kubectl completion zsh)
 
