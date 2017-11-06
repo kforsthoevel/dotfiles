@@ -54,14 +54,14 @@ Plug 'ngmy/vim-rubocop'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'terryma/vim-expand-region'
-" Plug 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 Plug 'hashivim/vim-terraform'
 Plug 'jiangmiao/auto-pairs'
 Plug 'christianrondeau/vim-base64'
 Plug 'fatih/vim-go'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'haya14busa/incsearch.vim'
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
