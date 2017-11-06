@@ -4,10 +4,10 @@ windows:
     focus: true
     panes:
       - shell_command:
-        - cd $HOME/projects/iwfm-hosts-crud
+        - cd $HOME/projects/host-updater/iwfm-hosts-crud
         - vim
       - shell_command:
-        - cd $HOME/projects/iwfm-hosts-crud
+        - cd $HOME/projects/host-updater/iwfm-hosts-crud
   - window_name: packer
     panes:
       - shell_command:
