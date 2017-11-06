@@ -166,7 +166,15 @@ set rtp+=~/.fzf
 nmap ; :Buffers<CR>
 nmap <Leader>r :Tags<CR>
 nmap <Leader>t :Files<CR>
-nmap <Leader>a :Ag<CR>
+nmap <Leader>a :Rg<CR>
+
+" Similarly, we can apply it to fzf#vim#grep. To use ripgrep instead of ag:
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 " Use incsearch.vim to highlight as I search
 map /  <Plug>(incsearch-forward)
@@ -174,10 +182,10 @@ map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
 " ALE
-let g:ale_sign_warning = '▲'
-let g:ale_sign_error = '✗'
-highlight link ALEWarningSign String
-highlight link ALEErrorSign Title
+" let g:ale_sign_warning = '▲'
+" let g:ale_sign_error = '✗'
+" highlight link ALEWarningSign String
+" highlight link ALEErrorSign Title
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
