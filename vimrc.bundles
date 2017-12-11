@@ -61,6 +61,7 @@ Plug 'christianrondeau/vim-base64'
 Plug 'fatih/vim-go'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'haya14busa/incsearch.vim'
+Plug 'drzel/vim-split-line'
 " Plug 'w0rp/ale'
 
 if filereadable(expand("~/.vimrc.bundles.local"))

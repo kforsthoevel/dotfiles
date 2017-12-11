@@ -72,6 +72,8 @@ nmap <leader>l :set list!<CR>
 " Switch between the last two files
 nmap <leader><leader> <c-^>
 
+nnoremap S :SplitLine<CR>
+
 " Use Tab for autocompletion
 function! Tab_Or_Complete()
   if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
