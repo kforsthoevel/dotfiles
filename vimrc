@@ -61,6 +61,10 @@ if &term =~ "xterm" || &term =~ "screen"
  let g:CommandTSelectPrevMap = ['<C-k>', '<ESC>OA']
 endif
 
+" Show next matched string at the center of screeen
+nnoremap n nzz
+nnoremap N Nzz
+
 " CtrlP
 " nnoremap <silent> <leader>t :CtrlP<CR>
 " nnoremap <silent> <leader>b :CtrlPBuffer<CR>
