@@ -1,0 +1,8 @@
+session_name: projects
+windows:
+  - window_name: projects
+    focus: true
+    panes:
+      - shell_command:
+        - cd $HOME/projects
+
