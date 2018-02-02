@@ -4,4 +4,4 @@ windows:
     focus: true
     panes:
       - shell_command:
-        - cd $HOME/projects
+        - cd $HOME
