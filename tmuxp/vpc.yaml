@@ -4,8 +4,8 @@ windows:
     focus: true
     panes:
       - shell_command:
-        - cd $HOME/projects/aws_vpc_infrastructure
+        - cd $HOME/projects/aws_terraform
         - vim
       - shell_command:
-        - cd $HOME/projects/aws_vpc_infrastructure
+        - cd $HOME/projects/aws_terraform
 
