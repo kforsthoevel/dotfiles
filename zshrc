@@ -1,21 +1,11 @@
-# Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-
-export DEFAULT_USER="kforsthoevel"
-
 DISABLE_CORRECTION="true"
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# ZSH_THEME="robbyrussell"
 ZSH_THEME="agnoster"
-
-# Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(berkshelf bundler docker docker-compose git golang history rbenv kitchen knife osx ruby terraform thor tmux vagrant zsh-syntax-highlighting)
+plugins=(bundler docker docker-compose git golang history rbenv osx ruby terraform thor tmux vagrant zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -24,6 +14,7 @@ _has() {
   return $( whence $1 >/dev/null )
 }
 
+export DEFAULT_USER="kforsthoevel"
 export EDITOR=vim
 export AWS_SSH_KEY='kforsthoevel'
 export AWS_SSH_KEY_FILE=${HOME}/.ssh/${AWS_SSH_KEY}.pem
@@ -34,12 +25,16 @@ export KOPS_STATE_STORE="s3://kops-kubernetes-state"
 export DISABLE_AUTO_TITLE=true
 export GOPATH="$HOME/projects/golang"
 export GPG_TTY=$(tty)
+export SAVEHIST=$HISTSIZE
 
 [[ -f ~/.zsh_colors.zsh ]] && source ~/.zsh_colors.zsh
 [[ -f ~/.atlas ]] && source ~/.atlas && export ATLAS_TOKEN
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f /usr/local/share/zsh/site-functions/_aws ]] && source /usr/local/share/zsh/site-functions/_aws
 [[ -f $HOME/projects/warp/warp ]] && source $HOME/projects/warp/warp
+[[ -f /usr/local/etc/profile.d/autojump.sh  ]] && . /usr/local/etc/profile.d/autojump.sh
+[[ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc ]] && . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+[[ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc ]] && . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
 # fzf via Homebrew
 if [ -e /usr/local/opt/fzf/shell/completion.zsh  ]; then
@@ -60,13 +55,13 @@ fi
 
 source <(kubectl completion zsh)
 
-
 ssh-add ~/.ssh/id_rsa &>/dev/null
 ssh-add ~/.ssh/kforsthoevel.pem &>/dev/null
 ssh-add ~/.ssh/devops.pem &>/dev/null
 ssh-add ~/.ssh/devops-us.pem &>/dev/null
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH="$HOME/Library/Python/3.6/bin:$PATH"
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 
