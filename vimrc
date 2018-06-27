@@ -134,7 +134,7 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd FileType eruby,json,yaml,html setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType ruby setlocal colorcolumn=79 shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd FileType ruby,eruby,json,yaml,html autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
-autocmd FileType markdown setlocal spell
+autocmd FileType markdown setlocal spell spelllang=en_us,de_de
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
@@ -192,6 +192,18 @@ map g/ <Plug>(incsearch-stay)
 " let g:ale_sign_error = '✗'
 " highlight link ALEWarningSign String
 " highlight link ALEErrorSign Title
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
+
+"
+" vim-markdown
+"
+" Disable folding
+let g:vim_markdown_folding_disabled = 1
 
 " Local config
 if filereadable($HOME . "/.vimrc.local")
