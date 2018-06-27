@@ -10,8 +10,8 @@ windows:
   - window_name: route53
     panes:
       - shell_command:
-        - cd $HOME/projects/infra/route53
+        - cd $HOME/projects/aws-route53
         - vim
       - shell_command:
-        - cd $HOME/projects/infra/route53
+        - cd $HOME/projects/aws-route53
 
