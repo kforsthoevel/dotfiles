@@ -34,3 +34,7 @@
   prompt = false
 [difftool "icdiff"]
   cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+[user]
+	signingkey = 9E58C64809FA6916
+[commit]
+	gpgsign = true
