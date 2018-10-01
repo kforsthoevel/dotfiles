@@ -1,3 +1,9 @@
+#
+# load custom executable functions
+for function in ~/.zsh/functions/*; do
+  source $function
+done
+
 ZSH=$HOME/.oh-my-zsh
 DISABLE_CORRECTION="true"
 ZSH_THEME="agnoster"
@@ -5,14 +11,9 @@ CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler docker docker-compose git golang history rbenv osx ruby terraform thor tmux vagrant zsh-syntax-highlighting)
+plugins=(bundler docker docker-compose git history kubectl osx rbenv ruby terraform thor tmux zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
-
-# Returns whether the given command is executable or aliased.
-_has() {
-  return $( whence $1 >/dev/null )
-}
 
 export DEFAULT_USER="kforsthoevel"
 export EDITOR=vim
@@ -26,8 +27,9 @@ export DISABLE_AUTO_TITLE=true
 export GOPATH="$HOME/projects/golang"
 export GPG_TTY=$(tty)
 export SAVEHIST=$HISTSIZE
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
-[[ -f ~/.zsh_colors.zsh ]] && source ~/.zsh_colors.zsh
 [[ -f ~/.atlas ]] && source ~/.atlas && export ATLAS_TOKEN
 [[ -f ~/.aliases ]] && source ~/.aliases
 [[ -f /usr/local/share/zsh/site-functions/_aws ]] && source /usr/local/share/zsh/site-functions/_aws
@@ -53,15 +55,13 @@ if _has fzf && _has rg; then
   '
 fi
 
-source <(kubectl completion zsh)
-
 ssh-add ~/.ssh/id_rsa &>/dev/null
 ssh-add ~/.ssh/kforsthoevel.pem &>/dev/null
 ssh-add ~/.ssh/devops.pem &>/dev/null
 ssh-add ~/.ssh/devops-us.pem &>/dev/null
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
-export PATH="$HOME/Library/Python/3.6/bin:$PATH"
+# export PATH="$HOME/Library/Python/3.8/bin:$PATH"
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 
