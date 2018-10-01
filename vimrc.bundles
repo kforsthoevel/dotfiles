@@ -64,7 +64,8 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'haya14busa/incsearch.vim'
 Plug 'drzel/vim-split-line'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'reedes/vim-pencil'
+" Plug 'reedes/vim-pencil'
+Plug 'thanethomson/vim-jenkinsfile'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
