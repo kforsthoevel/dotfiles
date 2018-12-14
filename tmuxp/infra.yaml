@@ -1,12 +1,12 @@
-session_name: infra
+session_name: cloud-ops
 windows:
-  - window_name: infra
+  - window_name: ops
     focus: true
     panes:
       - shell_command:
-        - cd $HOME/projects/infra
+        - cd $HOME/projects/cloud-ops
       - shell_command:
-        - cd $HOME/projects/infra
+        - cd $HOME/projects/cloud-ops
   - window_name: route53
     panes:
       - shell_command:

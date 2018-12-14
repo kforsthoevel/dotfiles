@@ -4,17 +4,6 @@ for function in ~/.zsh/functions/*; do
   source $function
 done
 
-ZSH=$HOME/.oh-my-zsh
-DISABLE_CORRECTION="true"
-ZSH_THEME="agnoster"
-CASE_SENSITIVE="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler docker docker-compose git history kubectl osx rbenv ruby terraform thor tmux zsh-syntax-highlighting)
-
-source $ZSH/oh-my-zsh.sh
-
 export DEFAULT_USER="kforsthoevel"
 export EDITOR=vim
 export AWS_SSH_KEY='kforsthoevel'
@@ -26,17 +15,30 @@ export KOPS_STATE_STORE="s3://kops-kubernetes-state"
 export DISABLE_AUTO_TITLE=true
 export GOPATH="$HOME/projects/golang"
 export GPG_TTY=$(tty)
-export SAVEHIST=$HISTSIZE
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-[[ -f ~/.atlas ]] && source ~/.atlas && export ATLAS_TOKEN
-[[ -f ~/.aliases ]] && source ~/.aliases
+# Source plugins for antibody
+[[ -f $HOME/.zsh_plugins.sh ]] && source $HOME/.zsh_plugins.sh
+
+[[ -f ~/.aliases.zsh ]] && source ~/.aliases.zsh
 [[ -f /usr/local/share/zsh/site-functions/_aws ]] && source /usr/local/share/zsh/site-functions/_aws
 [[ -f $HOME/projects/warp/warp ]] && source $HOME/projects/warp/warp
 [[ -f /usr/local/etc/profile.d/autojump.sh  ]] && . /usr/local/etc/profile.d/autojump.sh
 [[ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc ]] && . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 [[ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc ]] && . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+
+# Bind terminal-specific up and down keys
+# Bind in both emacs and vi modes so it works in both, and is not
+# sensitive to whether this is loaded before or after the vi-mode plugin
+if [[ -n "$terminfo[kcuu1]" ]]; then
+  bindkey -M emacs "$terminfo[kcuu1]" history-substring-search-up
+  bindkey -M viins "$terminfo[kcuu1]" history-substring-search-up
+fi
+if [[ -n "$terminfo[kcud1]" ]]; then
+  bindkey -M emacs "$terminfo[kcud1]" history-substring-search-down
+  bindkey -M viins "$terminfo[kcud1]" history-substring-search-down
+fi
 
 # fzf via Homebrew
 if [ -e /usr/local/opt/fzf/shell/completion.zsh  ]; then
@@ -61,7 +63,6 @@ ssh-add ~/.ssh/devops.pem &>/dev/null
 ssh-add ~/.ssh/devops-us.pem &>/dev/null
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
-# export PATH="$HOME/Library/Python/3.8/bin:$PATH"
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 
