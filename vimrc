@@ -8,7 +8,6 @@ set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
-" set statusline=%f\ [%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=[%-3.3n]\ %c,%l/%L\ %P
 set autowrite     " Automatically :write before running commands
 set hidden
 set number
@@ -16,7 +15,10 @@ set relativenumber
 set numberwidth=5
 set encoding=utf-8
 set hlsearch
-
+" ignore whitespaces when vimdiffing stuff
+if &diff " diff mode
+  set diffopt+=iwhite
+endif
 " Use one space, not two, after punctuation.
 set nojoinspaces
 
