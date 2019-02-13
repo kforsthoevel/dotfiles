@@ -57,6 +57,13 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+" Align GitHub-flavored Markdown tables
+au FileType markdown vmap <Leader><Bar> :EasyAlign*<Bar><Enter>
+
 if &term =~ "xterm" || &term =~ "screen"
  let g:CommandTCancelMap = ['<C-c>', '<ESC>']
  let g:CommandTSelectNextMap = ['<C-j>', '<ESC>OB']
@@ -79,6 +86,9 @@ nmap <leader>l :set list!<CR>
 nmap <leader><leader> <c-^>
 
 nnoremap S :SplitLine<CR>
+
+" Toggle zoom
+nmap <leader>z <Plug>(zoom-toggle)
 
 " Use Tab for autocompletion
 function! Tab_Or_Complete()
