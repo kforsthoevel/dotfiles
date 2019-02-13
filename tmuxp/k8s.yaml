@@ -18,8 +18,8 @@ windows:
   - window_name: secrets
     panes:
       - shell_command:
-        - cd $HOME/team/k8s
+        - cd $HOME/projects/k8s-secrets
         - vim
       - shell_command:
-        - cd $HOME/team/k8s
+        - cd $HOME/projects/k8s-secrets
 
