@@ -27,6 +27,7 @@ export LANG=en_US.UTF-8
 [[ -f /usr/local/etc/profile.d/autojump.sh  ]] && . /usr/local/etc/profile.d/autojump.sh
 [[ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc ]] && . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 [[ -f /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc ]] && . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+[[ -f /usr/local/share/zsh/site-functions/_awless ]] && source /usr/local/share/zsh/site-functions/_awless
 
 # Bind terminal-specific up and down keys
 # Bind in both emacs and vi modes so it works in both, and is not
@@ -63,9 +64,12 @@ ssh-add ~/.ssh/id_rsa &>/dev/null
 ssh-add ~/.ssh/kforsthoevel.pem &>/dev/null
 ssh-add ~/.ssh/devops.pem &>/dev/null
 ssh-add ~/.ssh/devops-us.pem &>/dev/null
+ssh-add ~/.ssh/iwfm-cloud-ops-eu.pem &>/dev/null
+ssh-add ~/.ssh/iwfm-cloud-ops-us.pem &>/dev/null
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
+export PATH=$PATH:$HOME/.linkerd2/bin
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
