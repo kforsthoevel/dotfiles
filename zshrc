@@ -1,3 +1,5 @@
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
+
 #
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
