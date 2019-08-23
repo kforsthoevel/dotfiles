@@ -16,6 +16,7 @@ export GOPATH="$HOME/projects/golang"
 export GPG_TTY=$(tty)
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export HOMEBREW_GITHUB_API_TOKEN=$(cat ~/.homebrew_github_api_token)
 
 # Source plugins for antibody
 [[ -f $HOME/.zsh_plugins.sh ]] && source $HOME/.zsh_plugins.sh
