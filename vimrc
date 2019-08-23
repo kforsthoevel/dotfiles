@@ -205,11 +205,11 @@ map g/ <Plug>(incsearch-stay)
 " highlight link ALEWarningSign String
 " highlight link ALEErrorSign Title
 
-" augroup pencil
-"   autocmd!
-"   autocmd FileType markdown,mkd call pencil#init()
-"   autocmd FileType text         call pencil#init()
-" augroup END
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
 
 "
 " vim-markdown
