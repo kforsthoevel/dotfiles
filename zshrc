@@ -74,5 +74,4 @@ export PATH="$GOPATH/bin:$PATH"
 export PATH=$PATH:$HOME/.linkerd2/bin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 source /usr/local/opt/asdf/asdf.sh
