@@ -66,8 +66,7 @@ ssh-add ~/.ssh/id_rsa &>/dev/null
 ssh-add ~/.ssh/kforsthoevel.pem &>/dev/null
 ssh-add ~/.ssh/devops.pem &>/dev/null
 ssh-add ~/.ssh/devops-us.pem &>/dev/null
-ssh-add ~/.ssh/iwfm-cloud-ops-eu.pem &>/dev/null
-ssh-add ~/.ssh/iwfm-cloud-ops-us.pem &>/dev/null
+ssh-add ~/.ssh/cloud-ops-eu-12-08-2019.pem &>/dev/null
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
