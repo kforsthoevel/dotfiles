@@ -6,6 +6,8 @@ for function in ~/.zsh/functions/*; do
   source $function
 done
 
+setopt auto_cd
+
 export DEFAULT_USER="kforsthoevel"
 export EDITOR=vim
 export KOPS_STATE_STORE="s3://kops-kubernetes-state"
