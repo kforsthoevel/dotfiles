@@ -76,11 +76,6 @@ endif
 nnoremap n nzz
 nnoremap N Nzz
 
-" CtrlP
-" nnoremap <silent> <leader>t :CtrlP<CR>
-" nnoremap <silent> <leader>b :CtrlPBuffer<CR>
-" let g:ctrlp_show_hidden = 1
-
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 
@@ -200,12 +195,6 @@ command! -bang -nargs=* Rg
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
-
-" ALE
-" let g:ale_sign_warning = '▲'
-" let g:ale_sign_error = '✗'
-" highlight link ALEWarningSign String
-" highlight link ALEErrorSign Title
 
 augroup pencil
   autocmd!
