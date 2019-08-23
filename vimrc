@@ -15,6 +15,8 @@ set relativenumber
 set numberwidth=5
 set encoding=utf-8
 set hlsearch
+set undodir=~/.vim/undo
+
 " ignore whitespaces when vimdiffing stuff
 if &diff " diff mode
   set diffopt+=iwhite
