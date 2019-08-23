@@ -72,6 +72,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH=$PATH:$HOME/.linkerd2/bin
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 source /usr/local/opt/asdf/asdf.sh
