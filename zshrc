@@ -72,4 +72,5 @@ export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH=$PATH:$HOME/.linkerd2/bin
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+source /usr/local/opt/asdf/asdf.sh
