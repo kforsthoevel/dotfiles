@@ -68,6 +68,7 @@ Plug 'reedes/vim-pencil'
 Plug 'thanethomson/vim-jenkinsfile'
 Plug 'junegunn/vim-easy-align'
 Plug 'dhruvasagar/vim-zoom'
+Plug 'ervandew/supertab'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
