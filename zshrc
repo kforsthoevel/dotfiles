@@ -1,5 +1,12 @@
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
 
+# folder of all of your autocomplete functions
+fpath=($HOME/.zsh-completions $fpath)
+
+# enable autocomplete function
+autoload -U compinit
+compinit
+
 #
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
