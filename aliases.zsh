@@ -6,6 +6,7 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 alias ber="bundle exec rake"
 alias buc="brew update && brew upgrade && brew cleanup"
 alias dco="docker-compose"
+alias fzf="fzf --preview 'bat {}'"
 alias g='git'
 alias ga='git add'
 alias gb='git branch'
