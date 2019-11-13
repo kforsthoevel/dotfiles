@@ -76,7 +76,5 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH=$PATH:$HOME/.linkerd2/bin
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-export PATH="$HOME/.asdf/installs/python/3.7.4/bin:$PATH"
 
 source /usr/local/opt/asdf/asdf.sh
