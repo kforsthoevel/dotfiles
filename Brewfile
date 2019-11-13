@@ -1,38 +1,166 @@
-brew 'ansible'
-brew 'ant'
-brew 'awscli'
-brew 'bash'
-brew 'cmake'
-brew 'homebrew/fuse/encfs'
-brew 'fig'
-brew 'fwknop'
-brew 'git'
-brew 'git-extras'
-brew 'gnupg'
-brew 'htop-osx'
-brew 'icu4c'
-brew 'ipcalc'
-brew 'jq'
-brew 'libpqxx'
-brew 'ncdu'
-brew 'nmap'
-brew 'ossp-uuid'
-brew 'packer'
-brew 'pgcli'
-brew 'polipo'
-brew 'postgresql'
-brew 'pwgen'
-brew 'python'
-brew 'rbenv-gem-rehash'
-brew 'thoughtbot/formulae/rcm'
-brew 'ruby-build'
-brew 'siege'
-brew 'giantswarm/swarm/swarm-client'
-brew 'terraform'
-brew 'the_silver_searcher'
-brew 'tig'
-brew 'tmux'
-brew 'tree'
-brew 'vim', args: ['override-system-vi']
-brew 'watch'
-brew 'wget'
+tap "atombender/ktail"
+tap "burntsushi/ripgrep", "https://github.com/BurntSushi/ripgrep.git"
+tap "getantibody/tap"
+tap "goreleaser/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "ivx/bootstrap"
+tap "koenbollen/public"
+tap "reactiveops/tap"
+tap "shyiko/kubesec"
+tap "thoughtbot/formulae"
+tap "tldr-pages/tldr"
+tap "wagoodman/dive"
+tap "wallix/awless"
+tap "windmilleng/tap"
+brew "openssl@1.1"
+brew "sqlite"
+brew "ansible"
+brew "autoconf"
+brew "automake"
+brew "coreutils"
+brew "libtool"
+brew "asdf"
+brew "autojump"
+brew "awscli"
+brew "bash"
+brew "icu4c"
+brew "boost"
+brew "libpng"
+brew "gettext"
+brew "openssl"
+brew "pixman"
+brew "curl"
+brew "czmq"
+brew "go"
+brew "libassuan"
+brew "libksba"
+brew "pth"
+brew "dirmngr"
+brew "dnsmasq"
+brew "docker-compose"
+brew "encfs"
+brew "exa"
+brew "fd"
+brew "fontforge"
+brew "fx"
+brew "fzf"
+brew "gd"
+brew "git"
+brew "git-extras"
+brew "glances"
+brew "glide"
+brew "gnu-tar"
+brew "libusb"
+brew "npth"
+brew "pinentry"
+brew "gnupg"
+brew "gpg-agent"
+brew "gts"
+brew "graphviz"
+brew "htop"
+brew "httpie"
+brew "hub"
+brew "icdiff"
+brew "imagemagick"
+brew "intltool"
+brew "ipcalc"
+brew "iperf3"
+brew "jemalloc"
+brew "oniguruma"
+brew "jq"
+brew "kubernetes-cli"
+brew "kops"
+brew "kubernetes-helm"
+brew "lame"
+brew "libpqxx"
+brew "libsodium"
+brew "unibilium"
+brew "libtermkey"
+brew "libusb-compat"
+brew "libuv"
+brew "libvo-aacenc"
+brew "mas"
+brew "mdcat"
+brew "minikube"
+brew "msgpack"
+brew "mtr"
+brew "ncdu"
+brew "ngrep"
+brew "nmap"
+brew "ossp-uuid"
+brew "packer"
+brew "pandoc"
+brew "parallel"
+brew "pgcli"
+brew "pwgen"
+brew "reattach-to-user-namespace"
+brew "redis"
+brew "rlog"
+brew "ruby-build"
+brew "rust"
+brew "s3cmd"
+brew "shellcheck"
+brew "siege"
+brew "skaffold"
+brew "sl"
+brew "socat"
+brew "sops"
+brew "speedtest-cli"
+brew "stern"
+brew "stunnel"
+brew "telnet"
+brew "terraforming"
+brew "the_platinum_searcher"
+brew "the_silver_searcher"
+brew "tig"
+brew "tldr"
+brew "tmux"
+brew "tree"
+brew "unrar"
+brew "utf8proc"
+brew "vim"
+brew "watch"
+brew "wget"
+brew "wireguard-tools"
+brew "x264"
+brew "xvid"
+brew "atombender/ktail/ktail"
+brew "burntsushi/ripgrep/ripgrep-bin"
+brew "getantibody/tap/antibody"
+brew "goreleaser/tap/goreleaser"
+brew "ivx/bootstrap/bootstrap"
+brew "koenbollen/public/jl"
+brew "reactiveops/tap/polaris"
+brew "shyiko/kubesec/kubesec"
+brew "thoughtbot/formulae/rcm"
+brew "wagoodman/dive/dive"
+brew "wallix/awless/awless"
+cask "alacritty"
+cask "google-cloud-sdk"
+cask "keepassxc"
+cask "kitematic"
+cask "minikube"
+mas "Better Battery", id: 1028815744
+mas "feedly", id: 865500966
+mas "GarageBand", id: 682658836
+mas "ifolor Designer", id: 446366603
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
+mas "Mactracker", id: 430255202
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Numbers", id: 409203825
+mas "Outline", id: 1356178125
+mas "Pages", id: 409201541
+mas "Photos Duplicate Cleaner", id: 592704001
+mas "PhotoSweeper Lite", id: 506150103
+mas "Pocket", id: 568494494
+mas "Skitch", id: 425955336
+mas "Slack", id: 803453959
+mas "Telegram", id: 747648890
+mas "WireGuard", id: 1451685025
+mas "Xcode", id: 497799835
+mas "YubiKey Personalization Tool", id: 638161122
