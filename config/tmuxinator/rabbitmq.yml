@@ -1,0 +1,35 @@
+# /Users/kforsthoevel/.config/tmuxinator/rabbitmq.yml
+
+name: rabbitmq
+root: ~/git
+
+windows:
+  - packer:
+      root: ~/git/packer-definitions/rabbitmq
+      layout: even-vertical
+      panes:
+        - vim
+        -
+  - terraform:
+      root: ~/git/aws-terraform
+      layout: even-vertical
+      panes:
+        - vim
+        -
+  - secrets:
+      root: ~/git/k8s-secrets
+      layout: even-vertical
+      panes:
+        -
+  - scripts:
+      root: ~/git/cloud-ops
+      layout: even-vertical
+      panes:
+        -
+        -
+  - route53:
+      root: ~/git/aws-route53
+      layout: even-vertical
+      panes:
+        - vim
+        -

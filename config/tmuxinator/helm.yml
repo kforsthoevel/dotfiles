@@ -1,0 +1,15 @@
+# /Users/kforsthoevel/.config/tmuxinator/helm.yml
+
+name: helm
+root: ~/git/helm-chart
+
+
+windows:
+  - helm-chart:
+      layout: even-vertical
+      # Synchronize all panes of this window, can be enabled before or after the pane commands run.
+      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
+      # synchronize: after
+      panes:
+        - vim
+        -

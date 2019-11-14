@@ -1,0 +1,12 @@
+# /Users/kforsthoevel/.config/tmuxinator/go.yml
+
+name: go
+root: ~/git/golang/src/ivx
+
+windows:
+  - bootstrap:
+      root: ~/git/golang/src/ivx/bootstrap
+      layout: even-vertical
+      panes:
+        - vim
+        - clear

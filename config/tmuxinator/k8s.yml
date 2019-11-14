@@ -1,0 +1,30 @@
+# /Users/kforsthoevel/.config/tmuxinator/k8s.yml
+
+name: k8s
+root: ~/git
+
+windows:
+  - definitions:
+      root: ~/git/k8s-definitions
+      layout: even-vertical
+      panes:
+        - vim
+        -
+  - secrets:
+      root: ~/git/k8s-secrets
+      layout: even-vertical
+      layout: main-horizontal
+      panes:
+        -
+  - ingress:
+      root: ~/git/k8s-ingress-definitions
+      layout: even-vertical
+      panes:
+        - vim
+        -
+  - s3-buckets:
+      root: ~/git/k8s-s3-buckets
+      layout: even-vertical
+      panes:
+        - vim
+        -

@@ -1,0 +1,12 @@
+# /Users/kforsthoevel/.config/tmuxinator/route53.yml
+
+name: route53
+root: ~/git/aws-route53
+
+windows:
+  - main:
+      root: ~/git/aws-route53
+      layout: even-vertical
+      panes:
+        - vim
+        - clear

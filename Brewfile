@@ -141,24 +141,3 @@ cask "google-cloud-sdk"
 cask "keepassxc"
 cask "kitematic"
 cask "minikube"
-mas "Better Battery", id: 1028815744
-mas "feedly", id: 865500966
-mas "GarageBand", id: 682658836
-mas "ifolor Designer", id: 446366603
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Kindle", id: 405399194
-mas "Mactracker", id: 430255202
-mas "Microsoft Remote Desktop", id: 1295203466
-mas "Numbers", id: 409203825
-mas "Outline", id: 1356178125
-mas "Pages", id: 409201541
-mas "Photos Duplicate Cleaner", id: 592704001
-mas "PhotoSweeper Lite", id: 506150103
-mas "Pocket", id: 568494494
-mas "Skitch", id: 425955336
-mas "Slack", id: 803453959
-mas "Telegram", id: 747648890
-mas "WireGuard", id: 1451685025
-mas "Xcode", id: 497799835
-mas "YubiKey Personalization Tool", id: 638161122

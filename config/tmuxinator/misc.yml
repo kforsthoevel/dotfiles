@@ -1,0 +1,11 @@
+# /Users/kforsthoevel/.config/tmuxinator/misc.yml
+
+name: misc
+root: ~/
+
+windows:
+  - main:
+      root: ~/
+      layout: even-vertical
+      panes:
+        -
