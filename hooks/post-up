@@ -12,3 +12,8 @@ reset -Q
 if [ ! -f "${HOME}/.tmux/plugins/tpm/README.md" ]; then
   git clone https://github.com/tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
 fi
+
+# Install German keyboad w/ nodeadkeys
+if [ ! -f "${HOME}/Library/Keyboard Layouts/German-modified.keylayout" ]; then
+  cp "${HOME}/dotfiles/German-modified.keylayout" "${HOME}/Library/Keyboard Layouts/German-modified.keylayout"
+fi
