@@ -10,3 +10,4 @@
 *.local.zsh
 plan
 *.plan
+Brewfile.lock.json
