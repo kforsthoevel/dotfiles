@@ -16,7 +16,7 @@ done
 setopt auto_cd
 
 export DEFAULT_USER="kforsthoevel"
-export EDITOR=vim
+export EDITOR=emacs
 export KOPS_STATE_STORE="s3://kops-kubernetes-state"
 export DISABLE_AUTO_TITLE=true
 export GOPATH="$HOME/git/golang"
