@@ -196,10 +196,10 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
-augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd call pencil#init()
-augroup END
+" augroup pencil
+"   autocmd!
+"   autocmd FileType markdown,mkd call pencil#init()
+" augroup END
 
 "
 " vim-markdown
