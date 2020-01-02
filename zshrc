@@ -15,9 +15,7 @@ done
 
 setopt auto_cd
 
-export DEFAULT_USER="kforsthoevel"
-export EDITOR=emacs
-export KOPS_STATE_STORE="s3://kops-kubernetes-state"
+export EDITOR=vim
 export DISABLE_AUTO_TITLE=true
 export GOPATH="$HOME/git/golang"
 export GPG_TTY=$(tty)
@@ -66,11 +64,8 @@ if _has fzf && _has rg; then
   '
 fi
 
-ssh-add ~/.ssh/id_rsa &>/dev/null
-ssh-add ~/.ssh/kforsthoevel.pem &>/dev/null
-ssh-add ~/.ssh/devops.pem &>/dev/null
-ssh-add ~/.ssh/devops-us.pem &>/dev/null
-ssh-add ~/.ssh/cloud-ops-eu-12-08-2019.pem &>/dev/null
+# Local config
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
