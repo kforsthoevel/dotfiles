@@ -1,0 +1,65 @@
+#!/bin/bash
+
+fancy_echo() {
+  local fmt="$1"; shift
+
+  # shellcheck disable=SC2059
+  printf "\\n$fmt\\n" "$@"
+}
+
+
+add_or_update_asdf_plugin() {
+  local name="$1"
+
+  if ! asdf plugin-list | grep -Fq "$name"; then
+    asdf plugin-add "$name"
+  else
+    asdf plugin-update "$name"
+  fi
+}
+
+install_asdf_language() {
+  local language="$1"
+  local version
+  version="$(asdf list-all "$language" | grep -v "[a-z]" | tail -1)"
+
+  if ! asdf list "$language" | grep -Fq "$version"; then
+    asdf install "$language" "$version"
+    asdf global "$language" "$version"
+  fi
+}
+
+fancy_echo "Upgrading homebrew ..."
+brew update && brew upgrade && brew cleanup
+
+
+# shellcheck disable=SC1091
+source /usr/local/opt/asdf/asdf.sh
+add_or_update_asdf_plugin "ruby"
+add_or_update_asdf_plugin "python"
+add_or_update_asdf_plugin "golang"
+add_or_update_asdf_plugin "kops"
+add_or_update_asdf_plugin "nodejs"
+add_or_update_asdf_plugin "yarn"
+
+fancy_echo "Installing latest Ruby ..."
+install_asdf_language "ruby"
+
+fancy_echo "Installing latest Python ..."
+install_asdf_language "python"
+
+fancy_echo "Installing latest Go ..."
+install_asdf_language "golang"
+
+fancy_echo "Installing latest kops ..."
+install_asdf_language "kops"
+
+fancy_echo "Installing latest nodejs ..."
+install_asdf_language "nodejs"
+
+fancy_echo "Installing latest yarn ..."
+install_asdf_language "yarn"
+
+fancy_echo "Now using ..."
+asdf current
+asdf reshim
