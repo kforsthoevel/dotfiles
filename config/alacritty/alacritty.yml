@@ -168,50 +168,62 @@ font:
   use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: true
+draw_bold_text_with_bright_colors: false
 
-# Base16 Solarized Dark 256 - alacritty color config
-# Ethan Schoonover (modified by aramisgithub)
-colors:
-  # Default colors
-  primary:
-    background: '0x002b36'
-    foreground: '0x93a1a1'
+schemes:
+  solarized_light: &light
+    primary:
+      background: '0xFFFFD7'
+      foreground: '0x586e75'
+    cursor:
+      text:    '0xfdf6e3'
+      cursor:  '0x586e75'
+    normal:
+      black:   '0xfdf6e3'
+      red:     '0xdc322f'
+      green:   '0x859900'
+      yellow:  '0xb58900'
+      blue:    '0x268bd2'
+      magenta: '0xd33682'
+      violet:  '0x6c71c4'
+      cyan:    '0x2aa198'
+      white:   '0x586e75'
+    bright:
+      black:   '0x839496'
+      red:     '0xcb4b16'
+      green:   '0xeee8d5'
+      yellow:  '0x93a1a1'
+      blue:    '0x657b83'
+      magenta: '0x073642'
+      cyan:    '0xd33682'
+      white:   '0x002b36'
+  solarized_dark: &dark
+    primary:
+      background: '0x002b36'
+      foreground: '0x93a1a1'
+    cursor:
+      text: '0x002b36'
+      cursor: '0x93a1a1'
+    normal:
+      black:   '0x002b36'
+      red:     '0xdc322f'
+      green:   '0x859900'
+      yellow:  '0xb58900'
+      blue:    '0x268bd2'
+      magenta: '0x6c71c4'
+      cyan:    '0x2aa198'
+      white:   '0x93a1a1'
+    bright:
+      black:   '0x657b83'
+      red:     '0xcb4b16'
+      green:   '0x073642'
+      yellow:  '0x586e75'
+      blue:    '0x839496'
+      magenta: '0xeee8d5'
+      cyan:    '0xd33682'
+      white:   '0xfdf6e3'
 
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: '0x002b36'
-    cursor: '0x93a1a1'
-
-  # Normal colors
-  normal:
-    black:   '0x002b36'
-    red:     '0xdc322f'
-    green:   '0x859900'
-    yellow:  '0xb58900'
-    blue:    '0x268bd2'
-    magenta: '0x6c71c4'
-    cyan:    '0x2aa198'
-    white:   '0x93a1a1'
-
-  # Bright colors
-  bright:
-    black:   '0x657b83'
-    red:     '0xdc322f'
-    green:   '0x859900'
-    yellow:  '0xb58900'
-    blue:    '0x268bd2'
-    magenta: '0x6c71c4'
-    cyan:    '0x2aa198'
-    white:   '0xfdf6e3'
-
-  indexed_colors:
-    - { index: 16, color: '0x002b36' }
-    - { index: 17, color: '0xd33682' }
-    - { index: 18, color: '0x073642' }
-    - { index: 19, color: '0x586e75' }
-    - { index: 20, color: '0x839496' }
-    - { index: 21, color: '0xeee8d5' }
+colors: *dark
 
 # Visual Bell
 #
