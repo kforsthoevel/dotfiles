@@ -84,6 +84,9 @@ nmap <leader><leader> <c-^>
 
 nnoremap S :SplitLine<CR>
 
+" Clear search highlight
+nnoremap <CR> :nohlsearch<CR><CR>
+
 " Toggle zoom
 nmap <leader>z <Plug>(zoom-toggle)
 
