@@ -60,6 +60,16 @@ install_asdf_language "nodejs"
 fancy_echo "Installing latest yarn ..."
 install_asdf_language "yarn"
 
+asdf reshim
+
 fancy_echo "Now using ..."
 asdf current
-asdf reshim
+
+fancy_echo "Updating zsh plugins ..."
+/usr/local/bin/antibody update
+
+
+fancy_echo "Updating vim plugins ..."
+vim -u "$HOME"/.vimrc.bundles +PlugUpdate +PlugClean! +qa
+
+fancy_echo "All done. Have a nice day!"
