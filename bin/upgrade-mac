@@ -70,6 +70,7 @@ fancy_echo "Updating zsh plugins ..."
 
 
 fancy_echo "Updating vim plugins ..."
+vim -u "$HOME"/.vimrc.bundles +PlugUpgrade! +qa
 vim -u "$HOME"/.vimrc.bundles +PlugUpdate +PlugClean! +qa
 
 fancy_echo "All done. Have a nice day!"
