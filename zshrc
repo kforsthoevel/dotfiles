@@ -1,4 +1,3 @@
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
 
 # folder of all of your autocomplete functions
 fpath=($HOME/.zsh-completions $fpath)
@@ -21,6 +20,7 @@ export GOPATH="$HOME/git/golang"
 export GPG_TTY=$(tty)
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
 
 # Source plugins for antibody
 [[ -f $HOME/.zsh_plugins.sh ]] && source $HOME/.zsh_plugins.sh
@@ -61,6 +61,7 @@ if _has fzf && _has rg; then
   --color info:108,prompt:109,spinner:108,pointer:168,marker:168
   '
 fi
+
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
