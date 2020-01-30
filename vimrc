@@ -148,6 +148,13 @@ autocmd FileType ruby setlocal colorcolumn=79 shiftwidth=2 tabstop=2 softtabstop
 autocmd FileType ruby,eruby,json,yaml,html autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd FileType markdown setlocal spell spelllang=en_us,de_de
 
+" Fugitive stuff
+autocmd User fugitive
+  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+  \   nnoremap <buffer> .. :edit %:h<CR> |
+  \ endif
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
