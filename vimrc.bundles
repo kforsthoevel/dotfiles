@@ -69,6 +69,7 @@ Plug 'thanethomson/vim-jenkinsfile'
 Plug 'junegunn/vim-easy-align'
 Plug 'dhruvasagar/vim-zoom'
 Plug 'ervandew/supertab'
+Plug 'tpope/vim-abolish'
 
 if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
