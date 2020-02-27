@@ -21,7 +21,7 @@ add_or_update_asdf_plugin() {
 install_asdf_language() {
   local language="$1"
   local version
-  version="$(asdf list-all "$language" | grep -E "^v?[0-9]" | grep -E -v "(dev|alpha|beta|rc)" | tail -1)"
+  version="$(asdf list-all "$language" | grep -E "^v?[0-9][^(a-z)]*$" | tail -1)"
 
   if ! asdf list "$language" | grep -Fq "$version"; then
     asdf install "$language" "$version"
