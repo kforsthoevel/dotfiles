@@ -60,6 +60,12 @@ install_asdf_language "nodejs"
 fancy_echo "Installing latest yarn ..."
 install_asdf_language "yarn"
 
+fancy_echo "Updating pip"
+pip install --upgrade pip
+
+fancy_echo "Updating powerline-status"
+pip install --upgrade powerline-status
+
 asdf reshim
 
 fancy_echo "Now using ..."
