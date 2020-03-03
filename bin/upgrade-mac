@@ -29,6 +29,12 @@ install_asdf_language() {
   fi
 }
 
+install_or_upgrade_pip() {
+  local name="$1"
+  fancy_echo "Updating ${name}"
+  pip install --upgrade --quiet "$name"
+}
+
 fancy_echo "Upgrading homebrew ..."
 brew update && brew upgrade && brew cleanup
 
@@ -60,11 +66,9 @@ install_asdf_language "nodejs"
 fancy_echo "Installing latest yarn ..."
 install_asdf_language "yarn"
 
-fancy_echo "Updating pip"
-pip install --upgrade pip
-
-fancy_echo "Updating powerline-status"
-pip install --upgrade powerline-status
+install_or_upgrade_pip "pip"
+install_or_upgrade_pip "powerline-status"
+install_or_upgrade_pip "ec2instanceconnectcli"
 
 asdf reshim
 
