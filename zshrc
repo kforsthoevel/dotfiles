@@ -62,7 +62,6 @@ if _has fzf && _has rg; then
   '
 fi
 
-
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
