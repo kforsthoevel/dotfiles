@@ -70,6 +70,9 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH=$PATH:$HOME/.linkerd2/bin
+export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$HOME/.bin:$PATH
+
+eval "$(zoxide init zsh)"
 
 source /usr/local/opt/asdf/asdf.sh
