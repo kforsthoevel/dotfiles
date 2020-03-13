@@ -72,6 +72,6 @@ export PATH=$PATH:$HOME/.linkerd2/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$HOME/.bin:$PATH
 
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
 
 source /usr/local/opt/asdf/asdf.sh
