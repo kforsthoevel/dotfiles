@@ -43,6 +43,9 @@ set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 
+" Comments should be italic
+highlight Comment cterm=italic
+
 " Configure airline
 let g:airline_theme = 'solarized'
 let g:airline_powerline_fonts = 1
