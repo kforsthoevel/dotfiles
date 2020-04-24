@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+if [ $# = 0 ] || [[ " $* " =~ \ (help|--help)\  ]] ; then
+  echo "Usage: $0 user token"
+  echo "Creates an AWS session for 8hrs for a given user using MFA"
+  exit
+fi
+
+if [ -z "$1" ]; then
+  echo "No user name provided"
+  exit 1
+fi
+USER="$1"
+
+if [ -z "$2" ]; then
+  echo "No MFA token provided"
+  exit 1
+fi
+TOKEN="$2"
+
+set -euo pipefail
+
+SESSION=$(aws sts --profile "${USER}" get-session-token --duration-seconds 28800 \
+  --serial-number $(aws iam list-mfa-devices --profile "${USER}" \
+  --user-name $(aws sts get-caller-identity --profile "${USER}" | jq -r '.Arn | split("/")[1]') \
+  | jq -r '.MFADevices[0].SerialNumber') --token-code "${TOKEN}")
+
+AWS_ACCESS_KEY_ID=$(echo "${SESSION}" | jq -r '.Credentials.AccessKeyId')
+AWS_SECRET_ACCESS_KEY=$(echo "${SESSION}" | jq -r '.Credentials.SecretAccessKey')
+AWS_SESSION_TOKEN=$(echo "${SESSION}" | jq -r '.Credentials.SessionToken')
+
+aws configure set --profile default aws_access_key_id "${AWS_ACCESS_KEY_ID}"
+aws configure set --profile default aws_secret_access_key "${AWS_SECRET_ACCESS_KEY}"
+aws configure set --profile default aws_session_token "${AWS_SESSION_TOKEN}"
+aws configure set --profile default region eu-west-1
+
+echo "New session token created and written as [default] to ~/.aws/credentials"
+echo "Have fun!"
