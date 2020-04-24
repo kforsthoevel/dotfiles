@@ -1,36 +1,24 @@
 # /Users/kforsthoevel/.config/tmuxinator/aws.yml
 
 name: aws
-root: ~/git
+root: ~/git/aws-terraform
 
 windows:
-  - core:
-      root: ~/git/aws-terraform/eu-west-1/core
+  - eu-west-1:
+      root: ~/git/aws-terraform/eu-west-1
       layout: even-vertical
       panes:
         - vim
-        - clear
-  - staging:
-      root: ~/git/aws-terraform/eu-west-1/staging
+        -
+  - us-east-1:
+      root: ~/git/aws-terraform/us-east-1
       layout: even-vertical
       panes:
         - vim
-        - clear
-  - production:
-      root: ~/git/aws-terraform/eu-west-1/production
+        -
+  - eu-central-1:
+      root: ~/git/aws-terraform/eu-central-1
       layout: even-vertical
       panes:
         - vim
-        - clear
-  - infra:
-      root: ~/git/aws-terraform/eu-west-1/infra
-      layout: even-vertical
-      panes:
-        - vim
-        - clear
-  - s3:
-      root: ~/git/aws-terraform/eu-west-1/s3
-      layout: even-vertical
-      panes:
-        - vim
-        - clear
+        -
