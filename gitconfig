@@ -41,3 +41,5 @@
   cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
 [commit]
 	gpgsign = true
+[gpg]
+	program = gpg
