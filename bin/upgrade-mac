@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 fancy_echo() {
   local fmt="$1"; shift
@@ -78,6 +78,11 @@ asdf current
 fancy_echo "Updating zsh plugins ..."
 /usr/local/bin/antibody update
 
+fancy_echo "Updating ruby gems ..."
+gem install bundler tmuxinator
+
+fancy_echo "Updating completions for tmuxinator"
+curl -sL https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
 
 fancy_echo "Updating vim plugins ..."
 vim -u "$HOME"/.vimrc.bundles +PlugUpgrade! +qa
