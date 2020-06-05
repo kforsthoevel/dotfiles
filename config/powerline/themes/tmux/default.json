@@ -3,7 +3,8 @@
 		"right": [
 			{
 				"function": "powerline.segments.common.net.external_ip",
-				"priority": 50
+				"priority": 50,
+        "query_url": "http://checkip.amazonaws.com/"
 			},
 			{
 				"function": "powerline.segments.common.bat.battery",
