@@ -72,3 +72,9 @@ export PATH=$PATH:$HOME/.linkerd2/bin
 export PATH=$HOME/.bin:$PATH
 
 source /usr/local/opt/asdf/asdf.sh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/kai/y/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kai/y/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/kai/y/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kai/y/google-cloud-sdk/completion.zsh.inc'; fi
