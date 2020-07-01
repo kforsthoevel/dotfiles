@@ -1,5 +1,22 @@
 #!/usr/bin/env bash
 
+function installed {
+  cmd=$(command -v "${1}")
+
+  [[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
+  return ${?}
+}
+
+function die {
+  >&2 echo "Fatal: ${*}"
+  exit 1
+}
+
+deps=(asdf brew curl gem pip vim)
+for dep in "${deps[@]}"; do
+  installed "${dep}" || die "Missing '${dep}'"
+done
+
 fancy_echo() {
   local fmt="$1"; shift
 
