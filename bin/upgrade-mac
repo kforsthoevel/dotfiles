@@ -82,7 +82,7 @@ fancy_echo "Updating ruby gems ..."
 gem install bundler tmuxinator
 
 fancy_echo "Updating completions for tmuxinator"
-curl -sL https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
+curl -sL https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -o /usr/local/share/zsh/site-functions/_tmuxinator
 
 fancy_echo "Updating vim plugins ..."
 vim -u "$HOME"/.vimrc.bundles +PlugUpgrade! +qa
