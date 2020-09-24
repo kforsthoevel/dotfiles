@@ -42,7 +42,7 @@ MFA_CALLER_ID=$(aws sts get-caller-identity --profile "${MFA_USER}" | jq -r '.Ar
 MFA_DEVICES=$(aws iam list-mfa-devices --profile "${MFA_USER}" --user-name "${MFA_CALLER_ID}")
 MFA_SERIAL_NUMBER=$(echo "${MFA_DEVICES}"| jq -r '.MFADevices[0].SerialNumber')
 
-MFA_SESSION=$(aws sts --profile "${MFA_USER}" get-session-token --duration-seconds 28800 \
+MFA_SESSION=$(aws sts --profile "${MFA_USER}" get-session-token --duration-seconds 36000 \
   --serial-number ${MFA_SERIAL_NUMBER} --token-code "${MFA_TOKEN}")
 
 MFA_ACCESS_KEY_ID=$(echo "${MFA_SESSION}" | jq -r '.Credentials.AccessKeyId')
