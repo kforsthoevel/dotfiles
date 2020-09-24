@@ -58,27 +58,31 @@ brew update && brew upgrade && brew cleanup
 
 # shellcheck disable=SC1091
 source /usr/local/opt/asdf/asdf.sh
-add_or_update_asdf_plugin "ruby"
-add_or_update_asdf_plugin "python"
 add_or_update_asdf_plugin "golang"
 add_or_update_asdf_plugin "kops"
 add_or_update_asdf_plugin "nodejs"
+add_or_update_asdf_plugin "python"
+add_or_update_asdf_plugin "ruby"
+add_or_update_asdf_plugin "terraform"
 add_or_update_asdf_plugin "yarn"
 
-fancy_echo "Installing latest Ruby ..."
-install_asdf_language "ruby"
+fancy_echo "Installing latest Go ..."
+install_asdf_language "golang"
 
 fancy_echo "Installing latest Python ..."
 install_asdf_language "python"
 
-fancy_echo "Installing latest Go ..."
-install_asdf_language "golang"
+fancy_echo "Installing latest Ruby ..."
+install_asdf_language "ruby"
 
 fancy_echo "Installing latest kops ..."
 install_asdf_language "kops"
 
 fancy_echo "Installing latest nodejs ..."
 install_asdf_language "nodejs"
+
+fancy_echo "Installing latest terraform ..."
+install_asdf_language "terraform"
 
 fancy_echo "Installing latest yarn ..."
 install_asdf_language "yarn"
