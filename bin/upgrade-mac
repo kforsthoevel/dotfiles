@@ -8,7 +8,7 @@ function installed {
 }
 
 function die {
-  >&2 echo "Fatal: ${*}"
+  echo >&2 "Fatal: ${*}"
   exit 1
 }
 
@@ -18,12 +18,12 @@ for dep in "${deps[@]}"; do
 done
 
 fancy_echo() {
-  local fmt="$1"; shift
+  local fmt="$1"
+  shift
 
   # shellcheck disable=SC2059
   printf "\\n$fmt\\n" "$@"
 }
-
 
 add_or_update_asdf_plugin() {
   local name="$1"
