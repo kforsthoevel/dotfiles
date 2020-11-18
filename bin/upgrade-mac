@@ -55,11 +55,13 @@ install_or_upgrade_pip() {
 fancy_echo "Upgrading homebrew ..."
 brew update && brew upgrade && brew cleanup
 
-
 # shellcheck disable=SC1091
 source /usr/local/opt/asdf/asdf.sh
 add_or_update_asdf_plugin "golang"
+add_or_update_asdf_plugin "helm"
+add_or_update_asdf_plugin "kind"
 add_or_update_asdf_plugin "kops"
+add_or_update_asdf_plugin "linkerd"
 add_or_update_asdf_plugin "nodejs"
 add_or_update_asdf_plugin "python"
 add_or_update_asdf_plugin "ruby"
@@ -68,6 +70,15 @@ add_or_update_asdf_plugin "yarn"
 
 fancy_echo "Installing latest Go ..."
 install_asdf_language "golang"
+
+fancy_echo "Installing latest helm ..."
+install_asdf_language "helm"
+
+fancy_echo "Installing latest kind ..."
+install_asdf_language "kind"
+
+fancy_echo "Installing latest linkerd ..."
+install_asdf_language "linkerd"
 
 fancy_echo "Installing latest Python ..."
 install_asdf_language "python"
