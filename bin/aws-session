@@ -8,11 +8,11 @@ function installed {
 }
 
 function die {
-  >&2 echo "Fatal: ${@}"
+  echo >&2 "Fatal: " "${@}"
   exit 1
 }
 
-if [ $# = 0 ] || [[ " $* " =~ \ (help|--help)\  ]] ; then
+if [ $# = 0 ] || [[ " $* " =~ \ (help|--help)\  ]]; then
   echo "Usage: $0 user token"
   echo "Creates an AWS session for 8hrs for a given user using MFA"
   exit
@@ -40,18 +40,18 @@ set -euo pipefail
 
 MFA_CALLER_ID=$(aws sts get-caller-identity --profile "${MFA_USER}" | jq -r '.Arn | split("/")[1]')
 MFA_DEVICES=$(aws iam list-mfa-devices --profile "${MFA_USER}" --user-name "${MFA_CALLER_ID}")
-MFA_SERIAL_NUMBER=$(echo "${MFA_DEVICES}"| jq -r '.MFADevices[0].SerialNumber')
+MFA_SERIAL_NUMBER=$(echo "${MFA_DEVICES}" | jq -r '.MFADevices[0].SerialNumber')
 
 MFA_SESSION=$(aws sts --profile "${MFA_USER}" get-session-token --duration-seconds 36000 \
-  --serial-number ${MFA_SERIAL_NUMBER} --token-code "${MFA_TOKEN}")
+  --serial-number "${MFA_SERIAL_NUMBER}" --token-code "${MFA_TOKEN}")
 
 MFA_ACCESS_KEY_ID=$(echo "${MFA_SESSION}" | jq -r '.Credentials.AccessKeyId')
 MFA_SECRET_ACCESS_KEY=$(echo "${MFA_SESSION}" | jq -r '.Credentials.SecretAccessKey')
 MFA_SESSION_TOKEN=$(echo "${MFA_SESSION}" | jq -r '.Credentials.SessionToken')
 
-aws configure set --profile ${MFA_PROFILE} aws_access_key_id "${MFA_ACCESS_KEY_ID}"
-aws configure set --profile ${MFA_PROFILE} aws_secret_access_key "${MFA_SECRET_ACCESS_KEY}"
-aws configure set --profile ${MFA_PROFILE} aws_session_token "${MFA_SESSION_TOKEN}"
+aws configure set --profile "${MFA_PROFILE}" aws_access_key_id "${MFA_ACCESS_KEY_ID}"
+aws configure set --profile "${MFA_PROFILE}" aws_secret_access_key "${MFA_SECRET_ACCESS_KEY}"
+aws configure set --profile "${MFA_PROFILE}" aws_session_token "${MFA_SESSION_TOKEN}"
 
 echo "New session token created and written as [${MFA_PROFILE}] to ~/.aws/credentials"
 echo "Have fun!"
