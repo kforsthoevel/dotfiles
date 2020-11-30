@@ -58,6 +58,7 @@ brew update && brew upgrade && brew cleanup
 # shellcheck disable=SC1091
 source /usr/local/opt/asdf/asdf.sh
 add_or_update_asdf_plugin "golang"
+add_or_update_asdf_plugin "goreleaser"
 add_or_update_asdf_plugin "helm"
 add_or_update_asdf_plugin "kind"
 add_or_update_asdf_plugin "kops"
@@ -70,6 +71,9 @@ add_or_update_asdf_plugin "yarn"
 
 fancy_echo "Installing latest Go ..."
 install_asdf_language "golang"
+
+fancy_echo "Installing latest GoReleaser ..."
+install_asdf_language "goreleaser"
 
 fancy_echo "Installing latest helm ..."
 install_asdf_language "helm"
