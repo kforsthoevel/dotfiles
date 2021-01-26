@@ -215,7 +215,12 @@ map g/ <Plug>(incsearch-stay)
 "   autocmd FileType markdown,mkd call pencil#init()
 " augroup END
 
-"
+" Golang autoimport on save
+let g:go_fmt_command = "goimports"
+
+" Terraform autofmt on save
+let g:terraform_fmt_on_save=1
+
 " vim-markdown
 "
 " Disable folding
