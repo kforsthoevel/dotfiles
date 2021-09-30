@@ -4,7 +4,7 @@
 			{
 				"function": "powerline.segments.common.net.external_ip",
 				"priority": 50,
-        "query_url": "http://checkip.amazonaws.com/"
+        "query_url": "https://ipv4.icanhazip.com/"
 			},
 			{
 				"function": "powerline.segments.common.bat.battery",
