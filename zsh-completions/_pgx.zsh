@@ -10,7 +10,7 @@ function _pgx {
 
   case $state in
     cmd)
-      compadd -Q "$@" staging production
+      compadd -Q "$@" staging production infra
       ;;
     subcmd)
       case $words[2] in
@@ -20,6 +20,9 @@ function _pgx {
         production)
           _arguments '2:databases:($(_production))'
           ;;
+        infra)
+          _arguments '2:databases:($(_infra))'
+          ;;
       esac
   esac
 }
@@ -28,9 +31,13 @@ _pgx $@
 
 
 _staging() {
-  ls ~/git/k8s-secrets/staging/*.crypt | cut -d/ -f7 | cut -d. -f1
+  ls ~/git/k8s-secrets/staging/*.enc.yaml | cut -d/ -f7 | cut -d. -f1
 }
 
 _production() {
-  ls ~/git/k8s-secrets/production/*.crypt | cut -d/ -f7 | cut -d. -f1
+  ls ~/git/k8s-secrets/production/*.enc.yaml | cut -d/ -f7 | cut -d. -f1
+}
+
+_infra() {
+  ls ~/git/k8s-secrets/infra/*.enc.yaml | cut -d/ -f7 | cut -d. -f1
 }
