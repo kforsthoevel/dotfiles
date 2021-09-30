@@ -6,7 +6,6 @@ fpath=($HOME/.zsh-completions $fpath)
 autoload -U compinit
 compinit
 
-#
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
   source $function
@@ -31,6 +30,19 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
 [[ -f /usr/local/share/zsh/site-functions/_awless ]] && source /usr/local/share/zsh/site-functions/_awless
 [[ -f /usr/local/etc/profile.d/z.sh ]] && . /usr/local/etc/profile.d/z.sh
 
+# Use fd (https://github.com/sharkdp/fd) instead of the default find
+# command for listing path candidates.
+# - The first argument to the function ($1) is the base path to start traversal
+# - See the source code (completion.{bash,zsh}) for the details.
+# _fzf_compgen_path() {
+#   fd --hidden --follow --exclude ".git" . "$1"
+# }
+
+# Use fd to generate the list for directory completion
+# _fzf_compgen_dir() {
+#   fd --type d --hidden --follow --exclude ".git" . "$1"
+# }
+
 # Bind terminal-specific up and down keys
 # Bind in both emacs and vi modes so it works in both, and is not
 # sensitive to whether this is loaded before or after the vi-mode plugin
@@ -54,13 +66,12 @@ fi
 # fzf + rg configuration
 if _has fzf && _has rg; then
   export FZF_DEFAULT_COMMAND='rg --files --hidden --glob \!.git'
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_DEFAULT_OPTS='
-  --color fg:242,bg:236,hl:65,fg+:15,bg+:239,hl+:108
-  --color info:108,prompt:109,spinner:108,pointer:168,marker:168
-  '
+  # export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  # export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_DEFAULT_OPTS="--height 60% --layout=reverse --border --preview 'bat --color "always" {}'"
 fi
+  # --color fg:242,bg:236,hl:65,fg+:15,bg+:239,hl+:108
+  # --color info:108,prompt:109,spinner:108,pointer:168,marker:168
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
@@ -68,12 +79,15 @@ fi
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
-export PATH=$HOME/.bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
 
 source /usr/local/opt/asdf/asdf.sh
+export PATH=$HOME/.bin:$PATH
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/kai/y/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kai/y/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/kai/y/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kai/y/google-cloud-sdk/completion.zsh.inc'; fi
+kubesec-reencrypt() { kubesec decrypt ${1} > ${1/yml.crypt/yml}; kubesec-encrypt ${1/yml.crypt/yml} > ${1}; rm ${1/yml.crypt/yml} }
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
