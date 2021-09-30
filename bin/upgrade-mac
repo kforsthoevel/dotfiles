@@ -53,21 +53,26 @@ install_or_upgrade_pip() {
 }
 
 fancy_echo "Upgrading homebrew ..."
-brew update && brew upgrade && brew cleanup
+brew update; brew upgrade; brew cleanup
 
 # shellcheck disable=SC1091
 source /usr/local/opt/asdf/asdf.sh
+add_or_update_asdf_plugin "eksctl"
 add_or_update_asdf_plugin "golang"
 add_or_update_asdf_plugin "goreleaser"
 add_or_update_asdf_plugin "helm"
-add_or_update_asdf_plugin "kind"
+add_or_update_asdf_plugin "helmfile"
 add_or_update_asdf_plugin "kops"
 add_or_update_asdf_plugin "linkerd"
 add_or_update_asdf_plugin "nodejs"
 add_or_update_asdf_plugin "python"
 add_or_update_asdf_plugin "ruby"
 add_or_update_asdf_plugin "terraform"
+add_or_update_asdf_plugin "tmux"
 add_or_update_asdf_plugin "yarn"
+
+fancy_echo "Installing latest eksctl ..."
+install_asdf_language "eksctl"
 
 fancy_echo "Installing latest Go ..."
 install_asdf_language "golang"
@@ -78,8 +83,8 @@ install_asdf_language "goreleaser"
 fancy_echo "Installing latest helm ..."
 install_asdf_language "helm"
 
-fancy_echo "Installing latest kind ..."
-install_asdf_language "kind"
+fancy_echo "Installing latest helmfile ..."
+install_asdf_language "helmfile"
 
 fancy_echo "Installing latest linkerd ..."
 install_asdf_language "linkerd"
@@ -98,6 +103,9 @@ install_asdf_language "nodejs"
 
 fancy_echo "Installing latest terraform ..."
 install_asdf_language "terraform"
+
+fancy_echo "Installing latest tmux ..."
+install_asdf_language "tmux"
 
 fancy_echo "Installing latest yarn ..."
 install_asdf_language "yarn"
