@@ -57,7 +57,6 @@ brew update; brew upgrade; brew cleanup
 
 # shellcheck disable=SC1091
 source /usr/local/opt/asdf/asdf.sh
-add_or_update_asdf_plugin "eksctl"
 add_or_update_asdf_plugin "golang"
 add_or_update_asdf_plugin "goreleaser"
 add_or_update_asdf_plugin "helm"
@@ -70,9 +69,6 @@ add_or_update_asdf_plugin "ruby"
 add_or_update_asdf_plugin "terraform"
 add_or_update_asdf_plugin "tmux"
 add_or_update_asdf_plugin "yarn"
-
-fancy_echo "Installing latest eksctl ..."
-install_asdf_language "eksctl"
 
 fancy_echo "Installing latest Go ..."
 install_asdf_language "golang"
@@ -113,6 +109,8 @@ install_asdf_language "yarn"
 install_or_upgrade_pip "pip"
 install_or_upgrade_pip "powerline-status"
 install_or_upgrade_pip "ec2instanceconnectcli"
+install_or_upgrade_pip "wheel"
+install_or_upgrade_pip "ansible"
 
 asdf reshim
 
@@ -123,7 +121,7 @@ fancy_echo "Updating zsh plugins ..."
 /usr/local/bin/antibody update
 
 fancy_echo "Updating ruby gems ..."
-gem install bundler tmuxinator
+gem install bundler tmuxinator solargraph
 
 fancy_echo "Updating completions for tmuxinator"
 curl -sL https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -o /usr/local/share/zsh/site-functions/_tmuxinator
@@ -131,5 +129,8 @@ curl -sL https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completi
 fancy_echo "Updating vim plugins ..."
 vim -u "$HOME"/.vimrc.bundles +PlugUpgrade! +qa
 vim -u "$HOME"/.vimrc.bundles +PlugUpdate +PlugClean! +qa
+
+fancy_echo "Updating nvim plugins ..."
+nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 fancy_echo "All done. Have a nice day!"
