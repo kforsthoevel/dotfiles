@@ -11,3 +11,4 @@
 plan
 *.plan
 Brewfile.lock.json
+tags
