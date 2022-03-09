@@ -13,7 +13,7 @@ done
 
 setopt auto_cd
 
-export EDITOR=vim
+export EDITOR=nvim
 export DISABLE_AUTO_TITLE=true
 export GOPATH="$HOME/git/golang"
 export GPG_TTY=$(tty)
@@ -73,21 +73,17 @@ fi
   # --color fg:242,bg:236,hl:65,fg+:15,bg+:239,hl+:108
   # --color info:108,prompt:109,spinner:108,pointer:168,marker:168
 
+# Podman
+# export DOCKER_HOST='unix:///tmp/podman.sock'
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
+# export PATH="$HOME/.local/bin:$PATH"
 
-source /usr/local/opt/asdf/asdf.sh
+source /usr/local/opt/asdf/libexec/asdf.sh
 export PATH=$HOME/.bin:$PATH
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/kai/y/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kai/y/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/kai/y/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kai/y/google-cloud-sdk/completion.zsh.inc'; fi
-kubesec-reencrypt() { kubesec decrypt ${1} > ${1/yml.crypt/yml}; kubesec-encrypt ${1/yml.crypt/yml} > ${1}; rm ${1/yml.crypt/yml} }
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
