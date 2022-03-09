@@ -8,7 +8,7 @@ windows:
       root: ~/git/k8s-definitions
       layout: even-vertical
       panes:
-        - vim
+        - nvim
         -
   - secrets:
       root: ~/git/k8s-secrets
@@ -18,11 +18,4 @@ windows:
       root: ~/git/k8s-ingress-definitions
       layout: even-vertical
       panes:
-        - vim
-        -
-  - s3-buckets:
-      root: ~/git/k8s-s3-buckets
-      layout: even-vertical
-      panes:
-        - vim
-        -
+        - nvim

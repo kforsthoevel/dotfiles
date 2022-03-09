@@ -8,5 +8,5 @@ windows:
       root: ~/git/aws-route53
       layout: even-vertical
       panes:
-        - vim
+        - nvim
         - clear
