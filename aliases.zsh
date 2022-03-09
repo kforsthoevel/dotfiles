@@ -34,7 +34,7 @@ alias mux="tmuxinator"
 alias path='echo $PATH | tr -s ":" "\n"'
 alias pubip="/usr/bin/dig +short myip.opendns.com @resolver1.opendns.com"
 alias tf="terraform"
-alias vi="vim"
+alias vi="nvim"
 alias week='date +%V'
 
 [[ -f ~/.aliases.local.zsh ]] && source ~/.aliases.local.zsh
