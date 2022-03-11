@@ -21,14 +21,13 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
 
-# Source plugins for antibody
-[[ -f $HOME/.zsh_plugins.sh ]] && source $HOME/.zsh_plugins.sh
+eval "$(sheldon source)"
 
 [[ -f ~/.aliases.zsh ]] && source ~/.aliases.zsh
-[[ -f /usr/local/share/zsh/site-functions/_aws ]] && source /usr/local/share/zsh/site-functions/_aws
-[[ -f /usr/local/etc/profile.d/autojump.sh  ]] && . /usr/local/etc/profile.d/autojump.sh
-[[ -f /usr/local/share/zsh/site-functions/_awless ]] && source /usr/local/share/zsh/site-functions/_awless
-[[ -f /usr/local/etc/profile.d/z.sh ]] && . /usr/local/etc/profile.d/z.sh
+[[ -f /opt/homebrew/share/zsh/site-functions/_aws ]] && source /opt/homebrew/share/zsh/site-functions/_aws
+[[ -f /opt/homebrew/etc/profile.d/autojump.sh  ]] && . /opt/homebrew/etc/profile.d/autojump.sh
+[[ -f /opt/homebrew/share/zsh/site-functions/_awless ]] && source /opt/homebrew/share/zsh/site-functions/_awless
+[[ -f /opt/homebrew/etc/profile.d/z.sh ]] && . /opt/homebrew/etc/profile.d/z.sh
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
@@ -58,9 +57,9 @@ if [[ -n "$terminfo[kcud1]" ]]; then
 fi
 
 # fzf via Homebrew
-if [ -e /usr/local/opt/fzf/shell/completion.zsh  ]; then
-  source /usr/local/opt/fzf/shell/key-bindings.zsh
-  source /usr/local/opt/fzf/shell/completion.zsh
+if [ -e /opt/homebrew/opt/fzf/shell/completion.zsh  ]; then
+  source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+  source /opt/homebrew/opt/fzf/shell/completion.zsh
 fi
 
 # fzf + rg configuration
@@ -80,10 +79,10 @@ fi
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
-export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 # export PATH="$HOME/.local/bin:$PATH"
 
-source /usr/local/opt/asdf/libexec/asdf.sh
+source /opt/homebrew/opt/asdf/libexec/asdf.sh
 export PATH=$HOME/.bin:$PATH
