@@ -17,6 +17,14 @@ for dep in "${deps[@]}"; do
   installed "${dep}" || die "Missing '${dep}'"
 done
 
+ARCH=$(uname -m)
+
+if [[ ${ARCH} == "arm64" ]]; then
+  BREW_PATH="/opt/homebrew"
+else
+  BREW_PATH="/usr/local"
+fi
+
 fancy_echo() {
   local fmt="$1"
   shift
@@ -56,7 +64,7 @@ fancy_echo "Upgrading homebrew ..."
 brew update; brew upgrade; brew cleanup
 
 # shellcheck disable=SC1091
-source /usr/local/opt/asdf/asdf.sh
+source ${BREW_PATH}/opt/asdf/asdf.sh
 add_or_update_asdf_plugin "golang"
 add_or_update_asdf_plugin "goreleaser"
 add_or_update_asdf_plugin "helm"
@@ -118,7 +126,7 @@ fancy_echo "Now using ..."
 asdf current
 
 fancy_echo "Updating zsh plugins ..."
-/usr/local/bin/antibody update
+${BREW_PATH}/bin/sheldon lock --update
 
 fancy_echo "Updating ruby gems ..."
 gem install bundler tmuxinator solargraph
@@ -132,5 +140,8 @@ vim -u "$HOME"/.vimrc.bundles +PlugUpdate +PlugClean! +qa
 
 fancy_echo "Updating nvim plugins ..."
 nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+
+fancy_echo "Updating bash-language-server ..."
+npm install -g bash-language-server
 
 fancy_echo "All done. Have a nice day!"
