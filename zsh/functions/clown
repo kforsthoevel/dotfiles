@@ -1,0 +1,4 @@
+# Clone github repository and cd
+function clown() {
+  git clone "git@github.com:${1}" && cd $(echo ${1} | awk -F "/" '{print $2}')
+}
