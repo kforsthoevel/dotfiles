@@ -97,6 +97,10 @@ vim.cmd([[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=jso
 vim.cmd([[let g:terraform_fmt_on_save=1]])
 vim.cmd([[let g:terraform_align=1]])
 
+-- Enable spelling for markdown and gitcommits
+vim.cmd([[autocmd Filetype gitcommit setlocal spell textwidth=72]])
+vim.cmd([[autocmd Filetype markdown setlocal spell spelllang=en_us,de_de]])
+
 --Make line numbers default
 vim.wo.number = true
 
@@ -220,7 +224,7 @@ vim.api.nvim_set_keymap('n', '<leader>?', [[<cmd>lua require('telescope.builtin'
 -- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
 require('nvim-treesitter.configs').setup {
-  ensure_installed = "maintained",
+  ensure_installed = {"bash", "dockerfile", "elixir", "go", "gomod", "hcl", "html", "hjson", "http", "java", "javascript", "json", "latex", "lua", "make", "python", "regex", "ruby", "rust", "scss", "toml", "typescript", "vim", "yaml", "vue"},
   highlight = {
     enable = true, -- false will disable the whole extension
   },
@@ -301,6 +305,11 @@ require("null-ls").setup({
     sources = {
         require("null-ls").builtins.formatting.shfmt,
         require("null-ls").builtins.diagnostics.shellcheck,
+        require("null-ls").builtins.diagnostics.vale.with(
+          {
+            extra_args = { "--config=/Users/kai/.config/vale/.vale.ini" },
+		      }
+        ),
     },
 })
 
@@ -354,14 +363,14 @@ lspconfig.sumneko_lua.setup {
 local luasnip = require 'luasnip'
 
 -- nvim-cmp setup
-local cmp = require 'cmp'
+-- local cmp = require 'cmp'
 cmp.setup {
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
   },
-  mapping = {
+  mapping = cmp.mapping.preset.insert({
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
@@ -390,14 +399,35 @@ cmp.setup {
         fallback()
       end
     end,
-  },
+  }),
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
-    { name = 'buffer' },
+    {
+      name = 'buffer',
+      option = {
+        get_bufnrs = function()
+          return vim.api.nvim_list_bufs()
+        end
+      }
+    },
     { name = 'path' },
     { name = 'cmdline' },
   },
 }
+cmp.setup.cmdline('/', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
 -- vim: ts=2 sts=2 sw=2 et
 
