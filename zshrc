@@ -21,7 +21,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
 
-eval "$(sheldon source)"
+eval "$(/opt/homebrew/bin/sheldon source)"
 
 [[ -f ~/.aliases.zsh ]] && source ~/.aliases.zsh
 [[ -f /opt/homebrew/share/zsh/site-functions/_aws ]] && source /opt/homebrew/share/zsh/site-functions/_aws
