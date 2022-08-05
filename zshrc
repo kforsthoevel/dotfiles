@@ -85,4 +85,7 @@ export PATH="$GOPATH/bin:$PATH"
 # export PATH="$HOME/.local/bin:$PATH"
 
 source /opt/homebrew/opt/asdf/libexec/asdf.sh
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=$HOME/.bin:$PATH
+
+eval "$(starship init zsh)"
