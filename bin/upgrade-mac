@@ -75,7 +75,6 @@ add_or_update_asdf_plugin "nodejs"
 add_or_update_asdf_plugin "python"
 add_or_update_asdf_plugin "ruby"
 add_or_update_asdf_plugin "terraform"
-add_or_update_asdf_plugin "tmux"
 add_or_update_asdf_plugin "yarn"
 
 fancy_echo "Installing latest Go ..."
@@ -107,9 +106,6 @@ install_asdf_language "nodejs"
 
 fancy_echo "Installing latest terraform ..."
 install_asdf_language "terraform"
-
-fancy_echo "Installing latest tmux ..."
-install_asdf_language "tmux"
 
 fancy_echo "Installing latest yarn ..."
 install_asdf_language "yarn"
