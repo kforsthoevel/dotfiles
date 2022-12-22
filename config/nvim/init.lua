@@ -41,6 +41,8 @@ require('packer').startup(function()
   -- Terraform
   use 'hashivim/vim-terraform'
 
+  use 'fgsch/vim-varnish'
+
   -- vim-helm
   use 'towolf/vim-helm'
 
@@ -97,9 +99,13 @@ vim.cmd([[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=jso
 vim.cmd([[let g:terraform_fmt_on_save=1]])
 vim.cmd([[let g:terraform_align=1]])
 
+vim.opt.foldlevel = 20
+vim.opt.foldmethod = "indent"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
 -- Enable spelling for markdown and gitcommits
-vim.cmd([[autocmd Filetype gitcommit setlocal spell textwidth=72]])
-vim.cmd([[autocmd Filetype markdown setlocal spell spelllang=en_us,de_de]])
+vim.cmd([[autocmd Filetype gitcommit setlocal formatprg=par\ -qw72 spell textwidth=72]])
+vim.cmd([[autocmd Filetype markdown setlocal formatprg=par\ -qw72 spell spelllang=en_us,de_de]])
 
 --Make line numbers default
 vim.wo.number = true
@@ -197,14 +203,14 @@ require('telescope').setup {
       },
     },
   },
-  pickers = {
-    find_files = {
-      theme = "dropdown",
-    },
-    buffers= {
-      theme = "dropdown",
-    }
-  },
+  -- pickers = {
+  --   find_files = {
+  --     theme = "dropdown",
+  --   },
+  --   buffers= {
+  --     theme = "dropdown",
+  --   }
+  -- },
 }
 
 -- Enable telescope fzf native
@@ -239,6 +245,7 @@ require('nvim-treesitter.configs').setup {
   },
   indent = {
     enable = true,
+    disable = { 'yaml' },
   },
   textobjects = {
     select = {
@@ -302,20 +309,49 @@ local on_attach = function(_, bufnr)
 end
 
 require("null-ls").setup({
-    sources = {
-        require("null-ls").builtins.formatting.shfmt,
-        require("null-ls").builtins.diagnostics.shellcheck,
-        require("null-ls").builtins.diagnostics.vale.with(
-          {
-            extra_args = { "--config=/Users/kai/.config/vale/.vale.ini" },
-		      }
-        ),
-    },
+  debug = false,
+  sources = {
+    require("null-ls").builtins.formatting.shfmt,
+    require("null-ls").builtins.formatting.prettier,
+    require("null-ls").builtins.diagnostics.shellcheck,
+    require("null-ls").builtins.diagnostics.vale.with(
+      {
+        extra_args = { "--config=/Users/kai/.config/vale/.vale.ini" },
+      }
+    ),
+  },
 })
+
+-- GOPLS ---
+require'lspconfig'.gopls.setup{
+  default_config = {
+    cmd = {'gopls', '--remote=auto'},
+    filetypes = { "go", "gomod" },
+    settings = {
+      gopls = {
+        usePlaceholders = true,
+        buildFlags =  {"-tags=integration"},
+        gofumpt = true,
+      }
+    },
+  }
+}
+
+-- Golangci-lint-lsp
+require'lspconfig'.golangci_lint_ls.setup{
+  default_config = {
+    cmd = {'golangci-lint-langserver'},
+    root_dir = lspconfig.util.root_pattern('.git', 'go.mod'),
+    init_options = {
+      command = { "golangci-lint", "run", "--enable-all", "--disable", "lll", "--out-format", "json", "--issues-exit-code=1" };
+    }
+  },
+  filetypes = {'go','gomod'}
+}
 
 -- nvim-cmp supports additional completion capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Enable the following language servers
 local servers = { 'bashls','clangd', 'rust_analyzer', 'pyright', 'tsserver', 'solargraph', 'terraformls', 'tflint' }
@@ -371,17 +407,14 @@ cmp.setup {
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
-    ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<Tab>'] = function(fallback)
+    ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
@@ -389,8 +422,8 @@ cmp.setup {
       else
         fallback()
       end
-    end,
-    ['<S-Tab>'] = function(fallback)
+    end, { 'i', 's' }),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
@@ -398,7 +431,7 @@ cmp.setup {
       else
         fallback()
       end
-    end,
+    end, { 'i', 's' }),
   }),
   sources = {
     { name = 'nvim_lsp' },

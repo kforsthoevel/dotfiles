@@ -115,6 +115,7 @@ install_or_upgrade_pip "powerline-status"
 install_or_upgrade_pip "ec2instanceconnectcli"
 install_or_upgrade_pip "wheel"
 install_or_upgrade_pip "ansible"
+install_or_upgrade_pip "pynvim"
 
 asdf reshim
 
@@ -125,7 +126,7 @@ fancy_echo "Updating zsh plugins ..."
 ${BREW_PATH}/bin/sheldon lock --update
 
 fancy_echo "Updating ruby gems ..."
-gem install bundler tmuxinator solargraph
+gem install bundler tmuxinator solargraph neovim
 
 fancy_echo "Updating completions for tmuxinator"
 curl -sL https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -o /usr/local/share/zsh/site-functions/_tmuxinator
@@ -139,5 +140,12 @@ nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 fancy_echo "Updating bash-language-server ..."
 npm install -g bash-language-server
+
+fancy_echo "Updating npm neovim ..."
+npm install -g neovim
+
+fancy_echo "Install gopls and golang language server ..."
+go install golang.org/x/tools/gopls@latest
+go install github.com/nametake/golangci-lint-langserver@latest
 
 fancy_echo "All done. Have a nice day!"

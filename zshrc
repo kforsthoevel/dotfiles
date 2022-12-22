@@ -88,4 +88,4 @@ source /opt/homebrew/opt/asdf/libexec/asdf.sh
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=$HOME/.bin:$PATH
 
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
