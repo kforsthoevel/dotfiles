@@ -2,15 +2,27 @@
 
 if [ ! -e "$HOME"/.vim/autoload/plug.vim ]; then
   curl -fLo "$HOME"/.vim/autoload/plug.vim --create-dirs \
-      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 vim -u "$HOME"/.vimrc.bundles +PlugInstall +PlugClean! +qa
 
 reset -Q
 
+# Install AstroNvim
+if [ ! -e "$HOME"/.config/nvim/init.lua ]; then
+  echo "Clone AstroNvim"
+  git clone git@github.com:AstroNvim/AstroNvim ~/.config/nvim
+fi
+
+# Install custom AstroNvim config
+if [ ! -e "$HOME"/.config/nvim/lua/user/init.lua ]; then
+  echo "Clone kforsthoevel/astronvim_config"
+  git clone git@github.com:kforsthoevel/astronvim_config ~/.config/nvim/lua/user
+fi
+
 # Install tmux plugin manager
 if [ ! -f "${HOME}/.tmux/plugins/tpm/README.md" ]; then
-  git clone https://github.com/tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
+  git clone git@github.com:tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
 fi
 
 # Install German keyboad w/ nodeadkeys
