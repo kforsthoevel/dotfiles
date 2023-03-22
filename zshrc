@@ -20,6 +20,7 @@ export GPG_TTY=$(tty)
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 eval "$(/opt/homebrew/bin/sheldon source)"
 
@@ -88,4 +89,4 @@ source /opt/homebrew/opt/asdf/libexec/asdf.sh
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=$HOME/.bin:$PATH
 
-# eval "$(starship init zsh)"
+# EVAL "$(starship init zsh)"
