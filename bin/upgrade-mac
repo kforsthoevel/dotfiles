@@ -61,10 +61,12 @@ install_or_upgrade_pip() {
 }
 
 fancy_echo "Upgrading homebrew ..."
-brew update; brew upgrade; brew cleanup
+brew update
+brew upgrade
+brew cleanup
 
 # shellcheck disable=SC1091
-source ${BREW_PATH}/opt/asdf/asdf.sh
+source ${BREW_PATH}/opt/asdf/libexec/asdf.sh
 add_or_update_asdf_plugin "golang"
 add_or_update_asdf_plugin "goreleaser"
 add_or_update_asdf_plugin "helm"
@@ -76,6 +78,9 @@ add_or_update_asdf_plugin "python"
 add_or_update_asdf_plugin "ruby"
 add_or_update_asdf_plugin "terraform"
 add_or_update_asdf_plugin "yarn"
+
+fancy_echo "Installing latest aws-vault ..."
+install_asdf_language "aws-vault"
 
 fancy_echo "Installing latest Go ..."
 install_asdf_language "golang"
@@ -116,6 +121,7 @@ install_or_upgrade_pip "ec2instanceconnectcli"
 install_or_upgrade_pip "wheel"
 install_or_upgrade_pip "ansible"
 install_or_upgrade_pip "pynvim"
+install_or_upgrade_pip "yamllint"
 
 asdf reshim
 
@@ -135,11 +141,17 @@ fancy_echo "Updating vim plugins ..."
 vim -u "$HOME"/.vimrc.bundles +PlugUpgrade! +qa
 vim -u "$HOME"/.vimrc.bundles +PlugUpdate +PlugClean! +qa
 
-fancy_echo "Updating nvim plugins ..."
-nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
 fancy_echo "Updating bash-language-server ..."
 npm install -g bash-language-server
+
+fancy_echo "Updating typescript-language-server ..."
+npm install -g typescript-language-server typescript
+
+fancy_echo "Updating dockerfile-language-server ..."
+npm install -g dockerfile-language-server-nodejs
+
+fancy_echo "Updating docker-compose language service ..."
+npm i @microsoft/compose-language-service
 
 fancy_echo "Updating npm neovim ..."
 npm install -g neovim
