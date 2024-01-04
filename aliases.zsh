@@ -25,16 +25,17 @@ alias gst='git status'
 alias h='history'
 alias hsi='hs -i'
 alias k="kubectl"
-alias l='exa -l --time-style long-iso --git'
+alias l='eza -l --time-style long-iso --git --icons'
 alias la='ls -lAh'
-alias ll='exa -la --time-style long-iso --git'
+alias ll='eza -la --time-style long-iso --git --icons'
 alias localip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
-alias ls='exa'
+alias ls='eza --icons'
 alias mux="tmuxinator"
 alias path='echo $PATH | tr -s ":" "\n"'
 alias pubip="/usr/bin/dig +short myip.opendns.com @resolver1.opendns.com"
 alias tf="terraform"
 alias vi="nvim"
 alias week='date +%V'
+alias yless="jless --yaml"
 
 [[ -f ~/.aliases.local.zsh ]] && source ~/.aliases.local.zsh
