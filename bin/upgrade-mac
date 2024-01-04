@@ -122,6 +122,7 @@ install_or_upgrade_pip "wheel"
 install_or_upgrade_pip "ansible"
 install_or_upgrade_pip "pynvim"
 install_or_upgrade_pip "yamllint"
+install_or_upgrade_pip "ansible-lint"
 
 asdf reshim
 
@@ -152,6 +153,9 @@ npm install -g dockerfile-language-server-nodejs
 
 fancy_echo "Updating docker-compose language service ..."
 npm i @microsoft/compose-language-service
+
+fancy_echo "Updating ansible language server ..."
+npm install -g @ansible/ansible-language-server
 
 fancy_echo "Updating npm neovim ..."
 npm install -g neovim
