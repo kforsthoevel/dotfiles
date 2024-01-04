@@ -1,5 +1,5 @@
 # /Users/kforsthoevel/.config/tmuxinator/aws.yml
-
+---
 name: aws
 root: ~/git/aws-terraform
 
@@ -9,19 +9,6 @@ windows:
       layout: even-vertical
       panes:
         - nvim
-        -
-  - us-east-1:
-      root: ~/git/aws-terraform/us-east-1
-      layout: even-vertical
-      panes:
-        - nvim
-        -
-  - eu-central-1:
-      root: ~/git/aws-terraform/eu-central-1
-      layout: even-vertical
-      panes:
-        - nvim
-        -
         -
   - fastly:
       root: ~/git/aws-terraform/fastly

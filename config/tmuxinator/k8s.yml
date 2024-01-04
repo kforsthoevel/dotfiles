@@ -1,5 +1,5 @@
 # /Users/kforsthoevel/.config/tmuxinator/k8s.yml
-
+---
 name: k8s
 root: ~/git
 
@@ -10,12 +10,13 @@ windows:
       panes:
         - nvim
         -
-  - secrets:
-      root: ~/git/k8s-secrets
+  - apps:
+      root: ~/git/k8s-platform-apps
+      layout: even-vertical
       panes:
         -
   - ingress:
       root: ~/git/k8s-ingress-definitions
       layout: even-vertical
       panes:
-        - nvim
+        -
