@@ -1,6 +1,7 @@
 
 # folder of all of your autocomplete functions
-fpath=($HOME/.zsh-completions $fpath)
+# fpath=($HOME/.zsh-completions $fpath)
+# fpath=(/opt/homebrew/share/zsh/site-functions/_eza $fpath)
 
 # enable autocomplete function
 autoload -U compinit
@@ -21,6 +22,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=23"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export DFT_BACKGROUND=light
 
 eval "$(/opt/homebrew/bin/sheldon source)"
 
@@ -29,6 +31,7 @@ eval "$(/opt/homebrew/bin/sheldon source)"
 [[ -f /opt/homebrew/etc/profile.d/autojump.sh  ]] && . /opt/homebrew/etc/profile.d/autojump.sh
 [[ -f /opt/homebrew/share/zsh/site-functions/_awless ]] && source /opt/homebrew/share/zsh/site-functions/_awless
 [[ -f /opt/homebrew/etc/profile.d/z.sh ]] && . /opt/homebrew/etc/profile.d/z.sh
+
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
