@@ -1,0 +1,40 @@
+[env]
+  TERM = "xterm-256color"
+
+[font]
+  normal = { family = "Hack Nerd Font", style = "Regular" }
+  bold = { family = "Hack Nerd Font", style = "Bold" }
+  italic = { family = "Hack Nerd Font", style = "Italic" }
+
+  size = 12.0
+
+[colors]
+  cursor = { text = "0x002b36", cursor = "0x93a1a1" }
+
+[colors.primary]
+  background = "0x002b36"
+  foreground = "0x93a1a1"
+
+
+[colors.normal]
+  black = "0x002b36"
+  red = "0xdc322f"
+  green = "0x859900"
+  yellow = "0xb58900"
+  blue = "0x268bd2"
+  magenta = "0x6c71c4"
+  cyan = "0x2aa198"
+  white = "0x93a1a1"
+
+[colors.bright]
+  black = "0x657b83"
+  red = "0xcb4b16"
+  green = "0x073642"
+  yellow = "0x586e75"
+  blue = "0x839496"
+  magenta = "0xeee8d5"
+  cyan = "0xd33682"
+  white = "0xfdf6e3"
+
+[window]
+  option_as_alt = "OnlyLeft"
