@@ -34,11 +34,11 @@
   path = .gitconfig.local
 [diff]
 	compactionHeuristic = true
-  tool = icdiff
+  tool = difft
 [difftool]
   prompt = false
-[difftool "icdiff"]
-  cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
+[difftool "difftastic"]
+        cmd = difft "$LOCAL" "$REMOTE"
 [commit]
 	gpgsign = true
 [gpg]
@@ -46,3 +46,5 @@
 	format = ssh
 [init]
 	defaultBranch = main
+[gpg "ssh"]
+	allowedSignersFile = /Users/kai/.config/git/allowed_signers
