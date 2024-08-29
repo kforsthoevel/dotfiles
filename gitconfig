@@ -38,12 +38,11 @@
 [difftool]
   prompt = false
 [difftool "difftastic"]
-        cmd = difft "$LOCAL" "$REMOTE"
+  cmd = difft "$LOCAL" "$REMOTE"
 [commit]
 	gpgsign = true
 [gpg]
 	program = gpg
-	format = ssh
 [init]
 	defaultBranch = main
 [gpg "ssh"]
