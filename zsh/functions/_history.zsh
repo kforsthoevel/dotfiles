@@ -34,14 +34,33 @@ case $HIST_STAMPS in
   "") alias history='_history' ;;
   *) alias history="_history -t '$HIST_STAMPS'" ;;
 esac
+ 
+# Immediately append to history file:
+setopt INC_APPEND_HISTORY
 
-## History command configuration
-setopt extended_history       # record timestamp of command in HISTFILE
-setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
-setopt hist_ignore_dups       # ignore duplicated commands history list
-setopt hist_ignore_space      # ignore commands that start with space
-setopt hist_verify            # show command with history expansion to user before running it
-setopt inc_append_history     # add commands to HISTFILE in order of execution
-setopt share_history          # share command history data
-setopt hist_save_no_dups      # Don't write duplicate entries in the history file.
+# Record timestamp in history:
+setopt EXTENDED_HISTORY
 
+# Expire duplicate entries first when trimming history:
+setopt HIST_EXPIRE_DUPS_FIRST
+
+# Dont record an entry that was just recorded again:
+setopt HIST_IGNORE_DUPS
+
+# Delete old recorded entry if new entry is a duplicate:
+setopt HIST_IGNORE_ALL_DUPS
+
+# Do not display a line previously found:
+setopt HIST_FIND_NO_DUPS
+
+# Dont record an entry starting with a space:
+setopt HIST_IGNORE_SPACE
+
+# Dont write duplicate entries in the history file:
+setopt HIST_SAVE_NO_DUPS
+
+# Share history between all sessions:
+setopt SHARE_HISTORY
+
+# Execute commands using history (e.g.: using !$) immediatel:
+unsetopt HIST_VERIFY
