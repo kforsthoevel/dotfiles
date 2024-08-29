@@ -4,8 +4,12 @@
 # fpath=(/opt/homebrew/share/zsh/site-functions/_eza $fpath)
 
 # enable autocomplete function
-autoload -U compinit
-compinit
+# Speed up completion init, see: https://gist.github.com/ctechols
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C
 
 # load custom executable functions
 for function in ~/.zsh/functions/*; do
@@ -31,7 +35,6 @@ eval "$(/opt/homebrew/bin/sheldon source)"
 [[ -f /opt/homebrew/etc/profile.d/autojump.sh  ]] && . /opt/homebrew/etc/profile.d/autojump.sh
 [[ -f /opt/homebrew/share/zsh/site-functions/_awless ]] && source /opt/homebrew/share/zsh/site-functions/_awless
 [[ -f /opt/homebrew/etc/profile.d/z.sh ]] && . /opt/homebrew/etc/profile.d/z.sh
-
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.
@@ -83,13 +86,19 @@ fi
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Try out atuin
+if type atuin &> /dev/null; then
+  eval "$(atuin init zsh --disable-up-arrow)"
+fi
+
 export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 # export PATH="$HOME/.local/bin:$PATH"
 
 source /opt/homebrew/opt/asdf/libexec/asdf.sh
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=$HOME/.bin:$PATH
 
-# EVAL "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"

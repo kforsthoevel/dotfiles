@@ -14,11 +14,14 @@ shell = "zsh"
 
 [plugins]
 
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+
 [plugins.ports]
 github = 'caarlos0/ports'
 
-[plugins.zsh-async]
-github = 'mafredri/zsh-async'
+# [plugins.zsh-async]
+# github = 'mafredri/zsh-async'
 
 [plugins.zsh-autosuggestions]
 github = 'zsh-users/zsh-autosuggestions'
@@ -38,8 +41,8 @@ github = 'softmoth/zsh-vim-mode'
 [plugins.fzf-z]
 github = 'andrewferrier/fzf-z'
 
-[plugins.pure]
-github = 'sindresorhus/pure'
+# [plugins.pure]
+# github = 'sindresorhus/pure'
 
 # For example:
 #
