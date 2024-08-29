@@ -1,43 +1,40 @@
 {
-	"segments": {
-		"right": [
-			{
-				"function": "powerline.segments.common.net.external_ip",
-				"priority": 50,
+  "segments": {
+    "right": [
+      {
+        "function": "powerline.segments.common.net.external_ip",
+        "priority": 50,
         "query_url": "https://ipv4.icanhazip.com/"
-			},
-			{
-				"function": "powerline.segments.common.bat.battery",
-				"priority": 50,
+      },
+      {
+        "function": "powerline.segments.common.bat.battery",
+        "priority": 50,
         "args": {
           "gamify": false
         }
-			},
-			{
-				"function": "powerline.segments.common.sys.system_load",
-				"priority": 50,
+      },
+      {
+        "function": "powerline.segments.common.sys.system_load",
+        "priority": 50,
         "args": {
           "short": false
         }
-			},
-			{
-				"function": "powerline.segments.common.time.date"
-			},
-			{
-				"function": "powerline.segments.common.time.date",
-				"name": "time",
-				"args": {
-					"format": "%H:%M",
-					"istime": true
-				}
-			},
-			{
-				"function": "powerline.segments.common.net.hostname",
+      },
+      {
+        "function": "powerline.segments.common.time.date",
+        "name": "time",
+        "args": {
+          "format": "%H:%M",
+          "istime": true
+        }
+      },
+      {
+        "function": "powerline.segments.common.net.hostname",
         "args": {
           "only_if_ssh": false,
           "exclude_domain": true
         }
-			}
-		]
-	}
+      }
+    ]
+  }
 }
