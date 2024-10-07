@@ -32,22 +32,6 @@ eval "$(/opt/homebrew/bin/sheldon source)"
 
 [[ -f ~/.aliases.zsh ]] && source ~/.aliases.zsh
 [[ -f /opt/homebrew/share/zsh/site-functions/_aws ]] && source /opt/homebrew/share/zsh/site-functions/_aws
-[[ -f /opt/homebrew/etc/profile.d/autojump.sh  ]] && . /opt/homebrew/etc/profile.d/autojump.sh
-[[ -f /opt/homebrew/share/zsh/site-functions/_awless ]] && source /opt/homebrew/share/zsh/site-functions/_awless
-[[ -f /opt/homebrew/etc/profile.d/z.sh ]] && . /opt/homebrew/etc/profile.d/z.sh
-
-# Use fd (https://github.com/sharkdp/fd) instead of the default find
-# command for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
-# _fzf_compgen_path() {
-#   fd --hidden --follow --exclude ".git" . "$1"
-# }
-
-# Use fd to generate the list for directory completion
-# _fzf_compgen_dir() {
-#   fd --type d --hidden --follow --exclude ".git" . "$1"
-# }
 
 # Bind terminal-specific up and down keys
 # Bind in both emacs and vi modes so it works in both, and is not
@@ -76,28 +60,26 @@ if _has fzf && _has rg; then
   # export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_DEFAULT_OPTS="--height 60% --layout=reverse --border --preview 'bat --color "always" {}'"
 fi
-  # --color fg:242,bg:236,hl:65,fg+:15,bg+:239,hl+:108
-  # --color info:108,prompt:109,spinner:108,pointer:168,marker:168
 
 # Podman
 # export DOCKER_HOST='unix:///tmp/podman.sock'
 
+# Colima
+export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
+
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Try out atuin
 if type atuin &> /dev/null; then
   eval "$(atuin init zsh --disable-up-arrow)"
 fi
 
-export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH=/Users/kai/.cargo/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
-# export PATH="$HOME/.local/bin:$PATH"
 
 source /opt/homebrew/opt/asdf/libexec/asdf.sh
-# export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=$HOME/.bin:$PATH
 
 eval "$(zoxide init zsh)"
