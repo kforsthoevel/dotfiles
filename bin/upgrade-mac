@@ -76,7 +76,9 @@ add_or_update_asdf_plugin "linkerd"
 add_or_update_asdf_plugin "nodejs"
 add_or_update_asdf_plugin "python"
 add_or_update_asdf_plugin "ruby"
+add_or_update_asdf_plugin "rust"
 add_or_update_asdf_plugin "terraform"
+add_or_update_asdf_plugin "yarn"
 
 fancy_echo "Installing latest aws-vault ..."
 install_asdf_language "aws-vault"
@@ -102,6 +104,9 @@ install_asdf_language "python"
 fancy_echo "Installing latest Ruby ..."
 install_asdf_language "ruby"
 
+fancy_echo "Installing latest Rust ..."
+install_asdf_language "rust"
+
 fancy_echo "Installing latest kops ..."
 install_asdf_language "kops"
 
@@ -110,6 +115,9 @@ install_asdf_language "nodejs"
 
 fancy_echo "Installing latest terraform ..."
 install_asdf_language "terraform"
+
+fancy_echo "Installing latest yarn ..."
+install_asdf_language "yarn"
 
 install_or_upgrade_pip "pip"
 install_or_upgrade_pip "ec2instanceconnectcli"
