@@ -2,10 +2,10 @@ alias .....="cd ../../../.."
 alias ....="cd ../../.."
 alias ...="cd ../.."
 alias ..="cd .."
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias ber="bundle exec rake"
 alias buc="brew update && brew upgrade && brew cleanup"
-alias dco="docker-compose"
+alias cat="bat -pp"
+alias dco="docker compose"
 alias g='git'
 alias ga='git add'
 alias gb='git branch'
@@ -26,6 +26,7 @@ alias hsi='hs -i'
 alias k="kubectl"
 alias l='eza -l --time-style long-iso --git --icons'
 alias la='ls -lAh'
+alias less="bat"
 alias ll='eza -la --time-style long-iso --git --icons'
 alias localip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
 alias ls='eza --icons'
@@ -36,5 +37,6 @@ alias tf="terraform"
 alias vi="nvim"
 alias week='date +%V'
 alias yless="jless --yaml"
+
 
 [[ -f ~/.aliases.local.zsh ]] && source ~/.aliases.local.zsh
