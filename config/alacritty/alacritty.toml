@@ -1,12 +1,3 @@
-import = [
-  # "~/.config/alacritty/nightfox.toml",
-  # "~/.config/alacritty/duskfox.toml",
-  # "~/.config/alacritty/dawnfox.toml",
-  # "~/.config/alacritty/dayfox.toml",
-  # "~/.config/alacritty/nordfox.toml",
-  "~/.config/alacritty/solarized-dark.toml",
-]
-
 [env]
   TERM = "xterm-256color"
 
@@ -29,9 +20,18 @@ option_as_alt = "OnlyLeft"
     { key = "Key7", mods = "Alt", chars = "|" },
     { key = "Key8", mods = "Alt", chars = "{" },
     { key = "Key9", mods = "Alt", chars = "}" },
-    { key = "L", mods = "Alt", chars = "@" },
-    { key = 45, mods = "Alt", chars = "~" },
     { key = 36, mods = "Command", action = "ToggleFullscreen" },
     { key = "D", mods = "Alt", chars = "\u001bd" },
     { key = "Q", mods = "Alt", chars = "\u001bq" },
   ]
+
+[general]
+import = [
+  # "~/.config/alacritty/nightfox.toml",
+  # "~/.config/alacritty/duskfox.toml",
+  # "~/.config/alacritty/dawnfox.toml",
+  # "~/.config/alacritty/dayfox.toml",
+  # "~/.config/alacritty/nordfox.toml",
+  "~/.config/alacritty/solarized-dark.toml",
+  # "~/.config/alacritty/solarized-osaka.toml",
+]
