@@ -12,7 +12,7 @@ function die {
   exit 1
 }
 
-deps=(asdf brew curl gem pip vim)
+deps=(brew curl gem mise pip vim)
 for dep in "${deps[@]}"; do
   installed "${dep}" || die "Missing '${dep}'"
 done
@@ -33,27 +33,6 @@ fancy_echo() {
   printf "\\n$fmt\\n" "$@"
 }
 
-add_or_update_asdf_plugin() {
-  local name="$1"
-
-  if ! asdf plugin-list | grep -Fq "$name"; then
-    asdf plugin-add "$name"
-  else
-    asdf plugin-update "$name"
-  fi
-}
-
-install_asdf_language() {
-  local language="$1"
-  local version
-  version="$(asdf list-all "$language" | grep -E "^v?[0-9][^(a-z)]*$" | tail -1)"
-
-  if ! asdf list "$language" | grep -Fq "$version"; then
-    asdf install "$language" "$version"
-    asdf global "$language" "$version"
-  fi
-}
-
 install_or_upgrade_pip() {
   local name="$1"
   fancy_echo "Updating ${name}"
@@ -65,59 +44,7 @@ brew update
 brew upgrade
 brew cleanup
 
-# shellcheck disable=SC1091
-source ${BREW_PATH}/opt/asdf/libexec/asdf.sh
-add_or_update_asdf_plugin "golang"
-add_or_update_asdf_plugin "goreleaser"
-add_or_update_asdf_plugin "helm"
-add_or_update_asdf_plugin "helmfile"
-add_or_update_asdf_plugin "kops"
-add_or_update_asdf_plugin "linkerd"
-add_or_update_asdf_plugin "nodejs"
-add_or_update_asdf_plugin "python"
-add_or_update_asdf_plugin "ruby"
-add_or_update_asdf_plugin "rust"
-add_or_update_asdf_plugin "terraform"
-add_or_update_asdf_plugin "yarn"
-
-fancy_echo "Installing latest aws-vault ..."
-install_asdf_language "aws-vault"
-
-fancy_echo "Installing latest Go ..."
-install_asdf_language "golang"
-
-fancy_echo "Installing latest GoReleaser ..."
-install_asdf_language "goreleaser"
-
-fancy_echo "Installing latest helm ..."
-install_asdf_language "helm"
-
-fancy_echo "Installing latest helmfile ..."
-install_asdf_language "helmfile"
-
-fancy_echo "Installing latest linkerd ..."
-install_asdf_language "linkerd"
-
-fancy_echo "Installing latest Python ..."
-install_asdf_language "python"
-
-fancy_echo "Installing latest Ruby ..."
-install_asdf_language "ruby"
-
-fancy_echo "Installing latest Rust ..."
-install_asdf_language "rust"
-
-fancy_echo "Installing latest kops ..."
-install_asdf_language "kops"
-
-fancy_echo "Installing latest nodejs ..."
-install_asdf_language "nodejs"
-
-fancy_echo "Installing latest terraform ..."
-install_asdf_language "terraform"
-
-fancy_echo "Installing latest yarn ..."
-install_asdf_language "yarn"
+mise up
 
 install_or_upgrade_pip "pip"
 install_or_upgrade_pip "ec2instanceconnectcli"
@@ -127,10 +54,8 @@ install_or_upgrade_pip "pynvim"
 install_or_upgrade_pip "yamllint"
 install_or_upgrade_pip "ansible-lint"
 
-asdf reshim
-
 fancy_echo "Now using ..."
-asdf current
+mise ls
 
 fancy_echo "Updating zsh plugins ..."
 ${BREW_PATH}/bin/sheldon lock --update
@@ -139,26 +64,11 @@ fancy_echo "Updating ruby gems ..."
 gem install bundler tmuxinator solargraph neovim
 
 fancy_echo "Updating completions for tmuxinator"
-curl -sL https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -o /usr/local/share/zsh/site-functions/_tmuxinator
+curl -sL https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.fish -o ~/.config/fish/completions/tmuxinator.fish
 
 fancy_echo "Updating vim plugins ..."
 vim -u "$HOME"/.vimrc.bundles +PlugUpgrade! +qa
 vim -u "$HOME"/.vimrc.bundles +PlugUpdate +PlugClean! +qa
-
-fancy_echo "Updating bash-language-server ..."
-npm install -g bash-language-server
-
-fancy_echo "Updating typescript-language-server ..."
-npm install -g typescript-language-server typescript
-
-fancy_echo "Updating dockerfile-language-server ..."
-npm install -g dockerfile-language-server-nodejs
-
-fancy_echo "Updating docker-compose language service ..."
-npm i @microsoft/compose-language-service
-
-fancy_echo "Updating ansible language server ..."
-npm install -g @ansible/ansible-language-server
 
 fancy_echo "Updating npm neovim ..."
 npm install -g neovim
