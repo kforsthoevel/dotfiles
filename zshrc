@@ -1,8 +1,8 @@
 
 # folder of all of your autocomplete functions
 # fpath=($HOME/.zsh-completions $fpath)
-# fpath=(/opt/homebrew/share/zsh/site-functions/_eza $fpath)
-
+fpath=(/opt/homebrew/share/zsh/site-functions/_eza $fpath)
+ 
 # enable autocomplete function
 # Speed up completion init, see: https://gist.github.com/ctechols
 autoload -Uz compinit
@@ -32,6 +32,9 @@ eval "$(/opt/homebrew/bin/sheldon source)"
 
 [[ -f ~/.aliases.zsh ]] && source ~/.aliases.zsh
 [[ -f /opt/homebrew/share/zsh/site-functions/_aws ]] && source /opt/homebrew/share/zsh/site-functions/_aws
+
+# Use bat to display man pages
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # Bind terminal-specific up and down keys
 # Bind in both emacs and vi modes so it works in both, and is not
@@ -65,7 +68,7 @@ fi
 # export DOCKER_HOST='unix:///tmp/podman.sock'
 
 # Colima
-export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
+# export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
@@ -79,8 +82,11 @@ export PATH=/Users/kai/.cargo/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/loca
 export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 
-source /opt/homebrew/opt/asdf/libexec/asdf.sh
+# source /opt/homebrew/opt/asdf/libexec/asdf.sh
+# source <(zellij setup --generate-completion zsh | sed '/_zellij "$@"/d')
+
 export PATH=$HOME/.bin:$PATH
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+eval "$(mise activate zsh)"
