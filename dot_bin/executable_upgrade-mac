@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+
+function installed {
+  cmd=$(command -v "${1}")
+
+  [[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
+  return ${?}
+}
+
+function die {
+  echo >&2 "Fatal: ${*}"
+  exit 1
+}
+
+deps=(brew curl gem mise pip vim)
+for dep in "${deps[@]}"; do
+  installed "${dep}" || die "Missing '${dep}'"
+done
+
+ARCH=$(uname -m)
+
+if [[ ${ARCH} == "arm64" ]]; then
+  BREW_PATH="/opt/homebrew"
+else
+  BREW_PATH="/usr/local"
+fi
+
+fancy_echo() {
+  local fmt="$1"
+  shift
+
+  # shellcheck disable=SC2059
+  printf "\\n$fmt\\n" "$@"
+}
+
+install_or_upgrade_pip() {
+  local name="$1"
+  fancy_echo "Updating ${name}"
+  pip install --upgrade --quiet "$name"
+}
+
+fancy_echo "Upgrading homebrew ..."
+brew update
+brew upgrade
+brew cleanup
+
+mise up
+
+install_or_upgrade_pip "pip"
+install_or_upgrade_pip "ec2instanceconnectcli"
+install_or_upgrade_pip "wheel"
+install_or_upgrade_pip "ansible"
+install_or_upgrade_pip "pynvim"
+install_or_upgrade_pip "yamllint"
+install_or_upgrade_pip "ansible-lint"
+
+fancy_echo "Now using ..."
+mise ls
+
+fancy_echo "Updating zsh plugins ..."
+${BREW_PATH}/bin/sheldon lock --update
+
+fancy_echo "Updating ruby gems ..."
+gem install bundler tmuxinator solargraph neovim
+
+fancy_echo "Updating completions for tmuxinator"
+curl -sL https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.fish -o ~/.config/fish/completions/tmuxinator.fish
+
+fancy_echo "Updating vim plugins ..."
+vim -u "$HOME"/.vimrc.bundles +PlugUpgrade! +qa
+vim -u "$HOME"/.vimrc.bundles +PlugUpdate +PlugClean! +qa
+
+fancy_echo "Updating npm neovim ..."
+npm install -g neovim
+
+fancy_echo "Install gopls and golang language server ..."
+go install golang.org/x/tools/gopls@latest
+go install github.com/nametake/golangci-lint-langserver@latest
+
+fancy_echo "All done. Have a nice day!"

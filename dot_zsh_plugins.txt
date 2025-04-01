@@ -1,0 +1,13 @@
+
+# this block is in alphabetic order
+caarlos0/ports
+mafredri/zsh-async
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+softmoth/zsh-vim-mode
+andrewferrier/fzf-z
+
+# these should be at last!
+sindresorhus/pure

@@ -1,0 +1,25 @@
+[tools]
+aws-vault = "latest"
+go = "latest"
+goreleaser = "latest"
+helm = "latest"
+helmfile = "latest"
+kops = "latest"
+kubectl = "latest"
+node = "latest"
+npm = "latest"
+python = "latest"
+ruby = "latest"
+rust = "latest"
+slsa-verifier = "latest"
+terraform = "latest"
+cosign = "latest"
+trivy = "latest"
+shellcheck = "latest"
+chezmoi = "latest"
+
+[tasks.reset]
+description = 'Reset .kube/config'
+run = "git checkout . && chmod 600 config"
+dir = "/Users/kai/.kube"
+alias = 'r' # `mise run r`

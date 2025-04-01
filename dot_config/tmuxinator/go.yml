@@ -1,0 +1,11 @@
+# /Users/kforsthoevel/.config/tmuxinator/bootstrap.yml
+
+name: bootstrap
+root: ~/git/homebrew-brewstrap
+
+windows:
+  - bootstrap:
+      layout: even-vertical
+      panes:
+        - vim
+        -

@@ -1,0 +1,5 @@
+theme = "nightfox"
+
+[editor]
+line-number = "relative"
+cursorline = true

@@ -1,0 +1,15 @@
+*.DS_Store
+*.sw[nop]
+.bundle
+!tmp/cache/.keep
+.kitchen/
+.kitchen.local.yml
+.coverage
+*.tfvars
+*.local
+*.local.zsh
+plan
+*.plan
+Brewfile.lock.json
+tags
+__pycache__

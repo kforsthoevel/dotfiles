@@ -1,0 +1,73 @@
+if &compatible
+  set nocompatible
+end
+
+" Remove declared plugins
+function! s:UnPlug(plug_name)
+  if has_key(g:plugs, a:plug_name)
+    call remove(g:plugs, a:plug_name)
+  endif
+endfunction
+command!  -nargs=1 UnPlug call s:UnPlug(<args>)
+
+" Shim command and function to allow migration from Vundle to vim-plug.
+function! VundleToPlug(vundle_command, arg, ...)
+  echom "You are using Vundle's `".a:vundle_command."` command to declare plugins. Dotfiles now uses vim-plug for plugin management. Please rename uses of `".a:vundle_command."` to `Plug`. Plugin was '".a:arg."'."
+  let vim_plug_options = {}
+
+  if a:0 > 0
+    if has_key(a:1, 'name')
+      let name = a:1.name
+      let vim_plug_options.dir = "$HOME/.vim/bundle/".a:1.name
+    endif
+
+    if has_key(a:1, 'rtp')
+      let vim_plug_options.rtp = a:1.rtp
+    endif
+  endif
+
+  Plug a:arg, vim_plug_options
+endfunction
+
+com! -nargs=+  -bar Plugin call VundleToPlug("Plugin", <args>)
+com! -nargs=+  -bar Bundle call VundleToPlug("Bundle", <args>)
+
+call plug#begin('~/.vim/bundle')
+
+" Define bundles via Github repos
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'christianrondeau/vim-base64'
+Plug 'danro/rename.vim'
+Plug 'dhruvasagar/vim-zoom'
+Plug 'drzel/vim-split-line'
+" Plug 'ervandew/supertab'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
+Plug 'godlygeek/tabular'
+Plug 'haya14busa/incsearch.vim'
+" Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/gv.vim'
+Plug 'junegunn/vim-easy-align'
+Plug 'mileszs/ack.vim'
+Plug 'ngmy/vim-rubocop'
+Plug 'scrooloose/syntastic'
+Plug 'sheerun/vim-polyglot'
+Plug 'terryma/vim-expand-region'
+Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-ruby/vim-ruby'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+if filereadable(expand("~/.vimrc.bundles.local"))
+  source ~/.vimrc.bundles.local
+endif
+
+call plug#end()

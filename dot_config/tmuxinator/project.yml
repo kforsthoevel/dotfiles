@@ -1,0 +1,11 @@
+# /Users/kforsthoevel/.config/tmuxinator/git.yml
+
+name: project
+root: ~/git/<%= @args[0] %>
+
+windows:
+  - main:
+      layout: even-vertical
+      panes:
+        - vim
+        - clear
