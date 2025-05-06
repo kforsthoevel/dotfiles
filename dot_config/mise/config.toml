@@ -17,6 +17,7 @@ cosign = "latest"
 trivy = "latest"
 shellcheck = "latest"
 chezmoi = "latest"
+opentofu = "latest"
 
 [tasks.reset]
 description = 'Reset .kube/config'
