@@ -18,6 +18,7 @@ trivy = "latest"
 shellcheck = "latest"
 chezmoi = "latest"
 opentofu = "latest"
+clusterctl = "latest"
 
 [tasks.reset]
 description = 'Reset .kube/config'
