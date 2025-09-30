@@ -1,6 +1,11 @@
 # This tells tmux to use fish shell as the default shell.
+{{- if eq .chezmoi.os "darwin" }}
 set -g default-shell /opt/homebrew/bin/fish
 set -g default-command 'reattach-to-user-namespace -l /opt/homebrew/bin/fish'
+{{- else if eq .chezmoi.os "linux" }}
+set -g default-shell /usr/bin/fish
+set -g default-command 'reattach-to-user-namespace -l /usr/bin/fish'
+{{- end }}
 
 # improve colors
 # set -g default-terminal 'screen-256color'
