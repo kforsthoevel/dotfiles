@@ -1,26 +1,35 @@
 [tools]
 chezmoi = "latest"
-clusterctl = "latest"
 cosign = "latest"
 go = "latest"
+node = "latest"
+npm = "latest"
+rust = "latest"
+shellcheck = "latest"
+slsa-verifier = "latest"
+{{- if eq .chezmoi.os "linux" }}
+bat = "latest"
+eza = "latest"
+fzf = "latest"
+ripgrep = "latest"
+{{- else if eq .chezmoi.os "darwin" }}
+clusterctl = "latest"
 goreleaser = "latest"
 helm = "latest"
 helmfile = "latest"
 kops = "latest"
-kubectl = "1.33.5"
-node = "latest"
-npm = "latest"
+kubectl = "latest"
 opentofu = "latest"
 python = "latest"
 ruby = "latest"
-rust = "latest"
-shellcheck = "latest"
-slsa-verifier = "latest"
 terraform = "latest"
 trivy = "latest"
+{{- end }}
 
+{{- if eq .chezmoi.os "darwin" }}
 [tasks.reset]
 description = 'Reset .kube/config'
 run = "git checkout . && chmod 600 config"
 dir = "/Users/kai/.kube"
 alias = 'r' # `mise run r`
+{{- end }}
