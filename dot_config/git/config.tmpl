@@ -1,3 +1,9 @@
+[user]
+	name = {{ .gitUserName}}
+	email = {{ .gitUserEmail }}
+	signingkey = {{ .gitUserSigningKey }}
+[credential]
+	helper = {{ .gitCredentialHelper }}
 [alias]
   sl = log --oneline --decorate -20
   sla = log --oneline --decorate --graph --all -20
@@ -5,8 +11,7 @@
   slap = log --oneline --decorate --graph --all
 [core]
 	editor = nvim
-	; pager = delta
-	excludesfile = ~/.gitignore
+	excludesfile = ~/.config/git/ignore
 [color]
   ui = auto
 	branch = auto
@@ -32,14 +37,6 @@
 [merge]
 	ff = only
 	conflictstyle = diff3
-[include]
-  path = .gitconfig.local
-; [interactive]
-;     diffFilter = delta --color-only
-; [delta]
-;     navigate = true
-;     dark = true
-;     side-by-side = true
 [diff]
 	compactionHeuristic = true
   colorMoved = plain
@@ -52,4 +49,4 @@
 [init]
 	defaultBranch = main
 [gpg "ssh"]
-	allowedSignersFile = /Users/kai/.config/git/allowed_signers
+	allowedSignersFile = ~/.config/git/allowed_signers
