@@ -66,9 +66,9 @@ gem install bundler tmuxinator solargraph neovim
 fancy_echo "Updating completions for tmuxinator"
 curl -sL https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.fish -o ~/.config/fish/completions/tmuxinator.fish
 
-fancy_echo "Updating vim plugins ..."
-vim -u "$HOME"/.vimrc.bundles +PlugUpgrade! +qa
-vim -u "$HOME"/.vimrc.bundles +PlugUpdate +PlugClean! +qa
+# fancy_echo "Updating vim plugins ..."
+# vim -u "$HOME"/.vimrc.bundles +PlugUpgrade! +qa
+# vim -u "$HOME"/.vimrc.bundles +PlugUpdate +PlugClean! +qa
 
 fancy_echo "Updating npm neovim ..."
 npm install -g neovim
