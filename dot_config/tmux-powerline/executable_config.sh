@@ -1,13 +1,12 @@
 # Default configuration file for tmux-powerline.
 # Modeline {
-vi: foldmarker={,} foldmethod=marker foldlevel=1 tabstop=4 filetype=sh
+# vi: foldmarker={,} foldmethod=marker foldlevel=1 tabstop=4 filetype=sh
 # }
-
 # General {
 # Show which segment fails and its exit code.
-export TMUX_POWERLINE_DEBUG_MODE_ENABLED="false"
+export TMUX_POWERLINE_DEBUG_MODE_ENABLED="true"
 # Create error log in tmux runtime temp dir.
-export TMUX_POWERLINE_ERROR_LOGS_ENABLED="false"
+export TMUX_POWERLINE_ERROR_LOGS_ENABLED="true"
 # Only log specific scopes. Space separated list of scopes. Supported scopes: weather.sh lib/text_roll.sh lib/powerline.sh lib/colors.sh config/helpers.sh
 export TMUX_POWERLINE_ERROR_LOGS_SCOPES=""
 # Use patched font symbols.
@@ -65,7 +64,7 @@ TMUX_POWERLINE_SEG_AIR_OPEN_WEATHER_API_KEY=""
 # How to display battery remaining. Can be {percentage, cute, hearts}.
 export TMUX_POWERLINE_SEG_BATTERY_TYPE="percentage"
 # How may hearts to show if cute indicators are used.
-export TMUX_POWERLINE_SEG_BATTERY_NUM_HEARTS="5"
+# export TMUX_POWERLINE_SEG_BATTERY_NUM_HEARTS="5"
 # }
 
 # cpu_temp.sh {

@@ -72,7 +72,7 @@ fi
 # shellcheck disable=SC1143,SC2128
 if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
   TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
-    "pwd 148 234"
+    # "pwd 148 234"
     "weather 37 255"
     "battery 33 255"
     "load 33 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
