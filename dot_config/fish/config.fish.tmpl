@@ -13,6 +13,12 @@ if status is-interactive
 
     atuin init fish --disable-up-arrow | source
 
+    # kubeswitch
+    switcher init fish | source
+    function s --wraps switcher
+        kubeswitch $argv;
+    end
+
 end
 
 starship init fish | source

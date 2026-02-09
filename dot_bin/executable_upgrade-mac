@@ -47,7 +47,6 @@ brew cleanup
 mise up
 
 install_or_upgrade_pip "pip"
-install_or_upgrade_pip "ec2instanceconnectcli"
 install_or_upgrade_pip "wheel"
 install_or_upgrade_pip "ansible"
 install_or_upgrade_pip "pynvim"
@@ -56,9 +55,6 @@ install_or_upgrade_pip "ansible-lint"
 
 fancy_echo "Now using ..."
 mise ls
-
-fancy_echo "Updating zsh plugins ..."
-${BREW_PATH}/bin/sheldon lock --update
 
 fancy_echo "Updating ruby gems ..."
 gem install bundler tmuxinator solargraph neovim

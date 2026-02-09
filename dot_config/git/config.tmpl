@@ -5,15 +5,15 @@
 [credential]
 	helper = {{ .gitCredentialHelper }}
 [alias]
-  sl = log --oneline --decorate -20
-  sla = log --oneline --decorate --graph --all -20
-  slp = log --oneline --decorate
-  slap = log --oneline --decorate --graph --all
+	sl = log --oneline --decorate -20
+	sla = log --oneline --decorate --graph --all -20
+	slp = log --oneline --decorate
+	slap = log --oneline --decorate --graph --all
 [core]
 	editor = nvim
 	excludesfile = ~/.config/git/ignore
 [color]
-  ui = auto
+	ui = auto
 	branch = auto
 	diff = auto
 	status = auto
@@ -39,13 +39,13 @@
 	conflictstyle = diff3
 [diff]
 	compactionHeuristic = true
-  colorMoved = plain
-  mnemonicPrefix = true
-  renames = true
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [commit]
 	gpgsign = true
 [gpg]
-	program = gpg
+	format = ssh
 [init]
 	defaultBranch = main
 [gpg "ssh"]
