@@ -39,7 +39,12 @@ install_or_upgrade_pip() {
   pip install --upgrade --quiet "$name"
 }
 
-fancy_echo "Upgrading homebrew ..."
+# fancy_echo "Upgrading homebrew ..."
+# brew update
+# brew upgrade
+# brew cleanup
+
+fancy_echo "Upgrading nanobrew ..."
 brew update
 brew upgrade
 brew cleanup

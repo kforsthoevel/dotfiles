@@ -8,6 +8,12 @@ set -g default-command 'reattach-to-user-namespace -l /opt/homebrew/bin/fish'
 # set -g default-terminal 'screen-256color'
 set-option -sa terminal-overrides ',xterm-256color:RGB'
 
+set -g default-terminal 'xterm-256color'
+set-option -g xterm-keys on
+
+bind-key x kill-pane # skip "kill-pane 1? (y/n)" prompt
+set -g detach-on-destroy off  # don't exit from tmux when closing a session
+
 # use vim keybindings in copy mode
 setw -g mode-keys vi
 
@@ -21,6 +27,14 @@ bind-key -r C-l select-window -t :+
 
 # shortcut for reloading tmux conf
 bind r source-file ~/.tmux.conf \; display "Config reloaded!"
+
+# sesh + television
+bind-key "K" display-popup -E -w 80% -h 70% -d '#{pane_current_path}' -T 'Sesh' tv sesh --no-sort
+
+# sesh + gum
+#bind-key "K" display-popup -E -w 40% "sesh connect \"$(
+# sesh list -i | gum filter --limit 1 --no-sort --fuzzy --placeholder 'Pick a sesh' --height 50 --prompt='⚡'
+#)\""
 
 # copy-mode
 bind-key f copy-mode

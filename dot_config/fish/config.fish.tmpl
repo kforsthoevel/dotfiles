@@ -6,6 +6,10 @@ if status is-interactive
     set -gx KOPS_STATE_STORE {{ .kopsStateStore }}
     {{- end }}
 
+    if not set -q TMUX
+        sesh connect (sesh list -i | gum filter --limit 1 --placeholder 'Pick a sesh' --prompt='⚡'
+    end
+
     source ~/.config/fish/aliases
     if test -r ~/.config/fish/aliases.local
         source ~/.config/fish/aliases.local

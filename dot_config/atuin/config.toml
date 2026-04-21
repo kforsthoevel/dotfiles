@@ -83,6 +83,10 @@
 #   "^/very/secret/area"
 # ]
 
+[daemon]
+enabled = true
+autostart = true
+
 common_subcommands = [
   "apt",
   "cargo",

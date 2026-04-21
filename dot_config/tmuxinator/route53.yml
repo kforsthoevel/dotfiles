@@ -1,11 +1,11 @@
 # /Users/kforsthoevel/.config/tmuxinator/route53.yml
 
 name: route53
-root: ~/git/aws-route53
+root: ~/git/ivx/aws-route53/main
 
 windows:
   - main:
-      root: ~/git/aws-route53
+      root: ~/git/ivx/aws-route53/main
       layout: even-vertical
       panes:
         - nvim

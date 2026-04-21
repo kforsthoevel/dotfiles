@@ -1,0 +1,59 @@
+strict_mode = false
+sort_order = ["tmux", "config", "zoxide", "tmuxinator"]
+dir_length = 3
+
+[default_session]
+startup_command = "nvim -c 'lua Snacks.picker.smart()'"
+preview_command = "eza --all --git --icons --color=always {}"
+
+[[session]]
+name = "misc"
+path = "~/"
+disable_startup_command = true
+
+[[session]]
+name = "kops"
+path = "~/git/ivx/cloud-ops/main/kops-templates/"
+
+[[session]]
+name = "k8s-definitions"
+path = "~/git/ivx/k8s-definitions/main"
+
+[[session]]
+name = "k8s-platform-apps"
+path = "~/git/ivx/k8s-platform-apps/main"
+
+[[session]]
+name = "k8s-ingress"
+path = "~/git/ivx/k8s-platform-apps/main"
+
+[[session]]
+name = "tf-fastly"
+path = "~/git/ivx/aws-terraform/main/fastly"
+
+[[session]]
+name = "tf-iam"
+path = "~/git/ivx/aws-terraform/main/iam"
+
+[[session]]
+name = "tf-eu-west-1"
+path = "~/git/ivx/aws-terraform/main/eu-west-1/"
+
+[[session]]
+name = "route53"
+path = "~/git/ivx/aws-route53/main/"
+
+[[session]]
+name = "Downloads 📥"
+path = "~/Downloads"
+startup_command = "eza --all --git --icons --color=always {}"
+
+[[session]]
+name = "tmux config"
+path = "~"
+startup_command = "chezmoi edit --apply .tmux.conf"
+
+[[session]]
+name = "nvim config"
+path = "~/.config/nvim"
+startup_command = "nvim -c 'lua Snacks.picker.files()'"

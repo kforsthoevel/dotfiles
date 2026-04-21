@@ -1,11 +1,11 @@
 # /Users/kforsthoevel/.config/tmuxinator/ops.yml
 
 name: ops
-root: ~/git/cloud-ops
+root: ~/git/ivx/cloud-ops/main
 
 windows:
   - main:
-      root: ~/git/cloud-ops
+      root: ~/git/ivx/cloud-ops/main
       layout: even-vertical
       panes:
         - nvim

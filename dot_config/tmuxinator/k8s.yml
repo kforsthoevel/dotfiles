@@ -1,22 +1,22 @@
 # /Users/kforsthoevel/.config/tmuxinator/k8s.yml
 ---
 name: k8s
-root: ~/git
+root: ~/git/ivx/
 
 windows:
   - definitions:
-      root: ~/git/k8s-definitions
+      root: ~/git/ivx/k8s-definitions/main
       layout: even-vertical
       panes:
         - nvim
         -
   - apps:
-      root: ~/git/k8s-platform-apps
+      root: ~/git/ivx/k8s-platform-apps/main
       layout: even-vertical
       panes:
         -
   - ingress:
-      root: ~/git/k8s-ingress-definitions
+      root: ~/git/ivx/k8s-ingress-definitions/main
       layout: even-vertical
       panes:
         -

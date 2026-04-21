@@ -1,23 +1,23 @@
 # /Users/kforsthoevel/.config/tmuxinator/aws.yml
 ---
 name: aws
-root: ~/git/aws-terraform
+root: ~/git/ivx/aws-terraform/main
 
 windows:
   - eu-west-1:
-      root: ~/git/aws-terraform/eu-west-1
+      root: ~/git/ivx/aws-terraform/main/eu-west-1
       layout: even-vertical
       panes:
         - nvim
         -
   - iam:
-      root: ~/git/aws-terraform/iam
+      root: ~/git/ivx/aws-terraform/main/iam
       layout: even-vertical
       panes:
         - nvim
         -
   - fastly:
-      root: ~/git/aws-terraform/fastly
+      root: ~/git/ivx/aws-terraform/main/fastly
       layout: even-vertical
       panes:
         - nvim
